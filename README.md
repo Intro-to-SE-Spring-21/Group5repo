@@ -2,9 +2,11 @@
 
 ## Group Members
 ```
-Lundy Burns     GitHub Username: Ydnul        Coding Languages: Python and C++
+Lundy Burns         GitHub UserName: Ydnul        Coding Languages: Python and C++
 
-Rachel Jordan   GitHub Username: RachelEJ     Coding Languages: Python, C++, HTML, CSS
+Rachel Jordan       GitHub UserName: RachelEJ     Coding Languages: Python, C++, HTML, CSS
 
-Jackson de Gruiter UserName: Jakksan - Coding Languages: Python, C++, Bash
+Jackson de Gruiter  GitHub UserName: Jakksan      Coding Languages: Python, C++, Bash
+
+Thomas Williamson   GitHub UserName: tbw179       Coding Languages: Java, JavaScript
 ```
