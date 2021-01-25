@@ -6,7 +6,7 @@ Lundy Burns         GitHub UserName: Ydnul        Coding Languages: Python and C
 
 Rachel Jordan       GitHub UserName: RachelEJ     Coding Languages: Python, C++, HTML, CSS
 
-Jackson de Gruiter  GitHub UserName: Jakksan      Coding Languages: Python, C++, Bash
+Jackson de Gruiter  GitHub UserName: Jakksan      Coding Languages: Python, C++, Bash     <Scrum Master>
 
-Thomas Williamson   GitHub UserName: tbw179       Coding Languages: Java, JavaScript   <MAINTAINER>
+Thomas Williamson   GitHub UserName: tbw179       Coding Languages: Java, JavaScript      <Team Leader>
 ```
