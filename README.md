@@ -8,5 +8,5 @@ Rachel Jordan       GitHub UserName: RachelEJ     Coding Languages: Python, C++,
 
 Jackson de Gruiter  GitHub UserName: Jakksan      Coding Languages: Python, C++, Bash
 
-Thomas Williamson   GitHub UserName: tbw179       Coding Languages: Java, JavaScript
+Thomas Williamson   GitHub UserName: tbw179       Coding Languages: Java, JavaScript   <MAINTAINER>
 ```
