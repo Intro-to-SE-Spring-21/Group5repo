@@ -1,16 +1,0 @@
---2021-01-31 06:07:29--  https://www.google.com/webmasters/verification/verification-file-dl?hl=en
-Resolving www.google.com (www.google.com)... 2607:f8b0:4000:817::2004, 172.217.9.4
-Connecting to www.google.com (www.google.com)|2607:f8b0:4000:817::2004|:443... connected.
-HTTP request sent, awaiting response... 302 Moved Temporarily
-Location: https://accounts.google.com/ServiceLogin?service=sitemaps&passive=1209600&continue=https://www.google.com/webmasters/verification/verification-file-dl?hl%3Den&followup=https://www.google.com/webmasters/verification/verification-file-dl?hl%3Den&hl=en [following]
---2021-01-31 06:07:30--  https://accounts.google.com/ServiceLogin?service=sitemaps&passive=1209600&continue=https://www.google.com/webmasters/verification/verification-file-dl?hl%3Den&followup=https://www.google.com/webmasters/verification/verification-file-dl?hl%3Den&hl=en
-Resolving accounts.google.com (accounts.google.com)... 2607:f8b0:4002:c00::54, 108.177.122.84
-Connecting to accounts.google.com (accounts.google.com)|2607:f8b0:4002:c00::54|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: unspecified [text/html]
-Saving to: ‘googledf6c9ebc10e7a8c8.html’
-
-googledf6c9ebc10e7a8c8.html             [<=>                                                               ]       0  --.-KB/s               googledf6c9ebc10e7a8c8.html             [ <=>                                                              ]  60.94K  --.-KB/s    in 0.05s   
-
-2021-01-31 06:07:30 (1.31 MB/s) - ‘googledf6c9ebc10e7a8c8.html’ saved [62406]
-
