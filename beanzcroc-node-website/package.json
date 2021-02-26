@@ -1,0 +1,15 @@
+{
+    "name": "beanzcroc-node-website",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "start": "node server.js",
+        "test": "jshint server.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "jshint": "^2.12.0"
+    }
+}
