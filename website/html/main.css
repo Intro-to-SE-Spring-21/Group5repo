@@ -53,6 +53,10 @@ h1 {
     color: #000;
 }
 
+/*********
+Home Page
+*********/
+
 .col {
     margin-top: 2vw;
     margin-bottom: 2vw;
@@ -112,6 +116,58 @@ h1 {
     border: 1px #020202 solid;
     background-color: #e3e3e3;
 }
+
+/*********
+Post A Beanz
+*********/
+
+#beanzBigTitle {
+    font-size: 3vw;
+    margin: 1.5vw 0 1.5vw 0;
+}
+
+#beanzForm {
+    margin: 0 auto;
+    width: 50vw;
+    padding: 2vw;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    background-color: #efefef;
+}
+
+input, textarea {
+    font-size: 2vw;
+    border-radius: 1em;
+    margin-top: 0.5vw;
+    margin-bottom: 2vw;
+    width: 100%;
+}
+
+label {
+    font-size: 2vw;
+}
+
+#beanzSubmit {
+    width: 20vw;
+    margin-bottom: 0;
+    border-radius: 1em;
+    padding: 0.5vw;
+    font-size: 1.5vw;
+    background-color: #800000;
+    color: #e3e3e3;
+}
+
+#beanzClear {
+    width: 10vw;
+    margin-bottom: 0;
+    border-radius: 1em;
+    padding: 0.5vw;
+    font-size: 1.5vw;
+    background-color: #800000;
+    color: #e3e3e3;
+}
+
+
 
 /*
 Colors
