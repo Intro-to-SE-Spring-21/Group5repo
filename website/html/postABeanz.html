@@ -11,29 +11,35 @@
         <a href="index.html"> <!-- "Logo" and link back to the home page -->
             <h1>BeanzCroc</h1>
         </a>
-        <nav> <!-- Login and Register buttons -->
-           <ul>
+        <nav> <!-- Navigation buttons -->
+            <ul>
                 <li class="navButtons">
-                    <a href="register.html">Register</a>
+                    <a href="settings.html">Settings</a>
                 </li>
                 <li class="navButtons">
-                    <a href="login.html">Login</a>
+                    <a href="registerAccount.html">Register</a>
                 </li>
-           </ul> 
+                <li class="navButtons">
+                    <a href="loginPage.html">Login</a>
+                </li>
+                <li class="navButtons">
+                    <a href="index.html">Home</a>
+                </li>
+            </ul> 
         </nav>
     </header>
     <!-- Starts the body for the Post a Beanz page -->
 
     <h4 id="beanzBigTitle">Post a Beanz</h4>
-    <div id="HTMLForm"> <!-- The form to take input from user for Beanz -->
-        <form action="/test.php" target="_blank" method="GET" id="beanzForm">
+    <div id="postBeanzForm"> <!-- The form to take input from user for Beanz -->
+        <form action="/test.php" method="POST" class="beanzForm">
             <!-- Title for the Beanz -->
             <label for="bTitle">Beanz Title:</label><br>
-            <input type="text" name="bTitle" size="30" maxlength="50" id="bTitleInput"><br>
+            <input type="text" placeholder="Enter Beanz Title" name="bTitle" size="30" maxlength="50" id="bTitleInput"><br>
 
             <!-- Actual text for the Beanz -->
             <label for="bText">Beanz Text:</label><br>
-            <textarea name="message" rows="5" cols="26" minlength="1" maxlength="140"></textarea><br>
+            <textarea name="message" placeholder="Enter Beanz Test" rows="5" cols="26" minlength="1" maxlength="140"></textarea><br>
             
             <!-- Submit and Clear buttons -->
             <input type="submit" value="Post your Beanz" id="beanzSubmit">
