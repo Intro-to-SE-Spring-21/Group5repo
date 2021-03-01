@@ -126,7 +126,7 @@ Post A Beanz
     margin: 1.5vw 0 1.5vw 0;
 }
 
-#beanzForm {
+.beanzForm {
     margin: 0 auto;
     width: 50vw;
     padding: 2vw;
@@ -166,6 +166,51 @@ label {
     background-color: #800000;
     color: #e3e3e3;
 }
+
+/*********
+Register Account
+*********/
+
+.registerbtn {
+    width: 20vw;
+    margin-bottom: 1vw;
+    border-radius: 1em;
+    padding: 0.5vw;
+    font-size: 1.5vw;
+    background-color: #800000;
+    color: #e3e3e3;
+}
+
+.desc {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+}
+
+.already {
+    font-size: 1.5vw;
+    display: inline-block;
+}
+
+.altBtn {
+    display: inline-block;
+    width: 10vw;
+    margin-bottom: 1vw;
+    border-radius: 1em;
+    padding: 0.5vw;
+    font-size: 1.5vw;
+    background-color: #800000;
+    color: #e3e3e3;
+}
+
+#idk {
+    color: #fff;
+}
+
+/*********
+Login Page
+*********/
+
+
 
 
 
