@@ -8,7 +8,7 @@
 </head>
 <body>
     <header> <!-- Header bar at top -->
-        <a href="index.html"> <!-- "Logo" and link back to the home page -->
+        <a href="home.php"> <!-- "Logo" and link back to the home page -->
             <h1>BeanzCroc</h1>
         </a>
         <nav> <!-- Navigation buttons -->
@@ -23,7 +23,7 @@
                     <a href="loginPage.html">Login</a>
                 </li>
                 <li class="navButtons">
-                    <a href="index.html">Home</a>
+                    <a href="home.php">Home</a>
                 </li>
             </ul> 
         </nav>
@@ -32,14 +32,14 @@
 
     <h4 id="beanzBigTitle">Post a Beanz</h4>
     <div id="postBeanzForm"> <!-- The form to take input from user for Beanz -->
-        <form action="/test.php" method="POST" class="beanzForm">
+        <form action="recieve_tweet.php" method="POST" class="beanzForm">
             <!-- Title for the Beanz -->
             <label for="bTitle">Beanz Title:</label><br>
-            <input type="text" placeholder="Enter Beanz Title" name="bTitle" size="30" maxlength="50" id="bTitleInput"><br>
+            <input type="text" placeholder="Enter Beanz Title" name="bTitle" size="30" maxlength="50" id="bTitleInput" required><br>
 
             <!-- Actual text for the Beanz -->
             <label for="bText">Beanz Text:</label><br>
-            <textarea name="message" placeholder="Enter Beanz Test" rows="5" cols="26" minlength="1" maxlength="140"></textarea><br>
+            <textarea name="bText" placeholder="Enter Beanz Test" rows="5" cols="26" minlength="1" maxlength="140" required></textarea><br>
             
             <!-- Submit and Clear buttons -->
             <input type="submit" value="Post your Beanz" id="beanzSubmit">

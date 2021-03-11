@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-   <meta name="google-site-verification" content="JxT9H3-nQ_cH5D90KPNbgekgA4P4JLC0Ae63gaevyWc" />
-   <style>
-      .myheader { margin-left: 20px; }
-      .mylinks{ margin-left: 30px; }
-      <meta property="og:image" content="https://i.redd.it/b3quqmw4eyuy.jpg" />
-      <link rel="image_src" href="https://i.redd.it/b3quqmw4eyuy.jpg" />
-   </style>
+<head> <!-- Meta Data -->
+    <meta charset="utf">
+    <link rel="stylesheet" href="main.css">
+    <title>BeanzCroc</title>
+    <!-- add links to fonts here -->
 </head>
-
-
-
-
-<div class="myheader">
-Links: 
-</div>
-
 <body>
-	<div class=mylinks>	
-	<a href="project/login.php"Login Page</a>Login Page
-	<br>
-	<a href="memes/beemovie.html"Bee Movie Script</a> Bee Movie
-	<br>
-	<a href="default/index.html"Default Apache Page</a>Default Apache Page
-	<br>
-	<a href="https://github.com/Intro-to-SE-Spring-21/Group5repo"GitHub Group5</a>Group 5 GitHub
-	<br>
-	<a href="https://rachelej.github.io/Criminal-Justice-Club-Website/"Rachel Site</a>Rachel's Test Site
-	<br>
-	<?php echo "Hello world - served by php"; ?>
-	</div>
+    <header> <!-- Header bar at top -->
+        <a href="home.php"> <!-- "Logo" and link back to the home page -->
+            <h1>BeanzCroc</h1>
+        </a>
+        <nav> <!-- Navigation buttons -->
+            <ul>
+                <li class="navButtons">
+                    <a href="settings.html">Settings</a>
+                </li>
+                <li class="navButtons">
+                    <a href="registerAccount.html">Register</a>
+                </li>
+                <li class="navButtons">
+                    <a href="loginPage.html">Login</a>
+                </li>
+                <li class="navButtons">
+                    <a href="home.php">Home</a>
+                </li>
+            </ul> 
+        </nav>
+    </header>
+    <!-- Starts the body for the home page -->
+
+    <!-- Post a Beanz / Feed -->
+    <div id="leftCol" class="col">
+        <a href="postABeanz.html" id="postBeanz">
+            Post a Beanz
+        </a>
+        <div id="feed">
+            <p>Feed and stuff here</p>
+        </div>
+    </div>
+    
+
+
+    <!-- Beanz full message -->
+    <div id="fullBeanz" class="col">
+        <p>Beanz Title</p>
+    </div>
+
+    <!-- User info -->
+    <div id="userInfo" class="col">
+        <p>User Handle</p>
+    </div>
+
 </body>
 </html>
