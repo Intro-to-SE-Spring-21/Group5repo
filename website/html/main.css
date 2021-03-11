@@ -101,13 +101,13 @@ Home Page
     font-size: 1vw;
     display: block;
     color: black;
-    background-color: #e9e9e9;
+    background-color: #f3f3f3;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
 
 #feed p:hover {
-    color:#800000;
+    color: #800000;
 }
 
 #fullBeanz {
@@ -181,7 +181,7 @@ label {
 }
 
 /*********
-Register Account
+Register Account / Login Page
 *********/
 
 .registerbtn {
@@ -200,6 +200,7 @@ Register Account
 }
 
 .already {
+    margin-top: 1vw;
     font-size: 1.5vw;
     display: inline-block;
 }
@@ -217,14 +218,6 @@ Register Account
 
 /*********
 Follow Page
-*********/
-
-#idk {
-    color: #fff;
-}
-
-/*********
-Settings
 *********/
 
 .folCol {
@@ -255,7 +248,13 @@ Settings
     background-color: #e3e3e3;
 }
 
-
+/*********
+Settings
+#idk {
+    color: #fff;
+}
+Let's not do this just yet.
+*********/
 
 
 
