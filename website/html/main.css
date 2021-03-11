@@ -97,17 +97,17 @@ Home Page
     background-color: #e3e3e3;
 }
 
-.leftColumnTitle {
+#feed p {
     font-size: 1vw;
     display: block;
     color: black;
     background-color: #e9e9e9;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
-.leftColumnTitle:hover {
+#feed p:hover {
     color:#800000;
-    border: 1px solid grey;
 }
 
 #fullBeanz {
