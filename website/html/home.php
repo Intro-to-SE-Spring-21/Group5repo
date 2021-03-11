@@ -37,7 +37,7 @@
             Post a Beanz
         </a>
         <div id="feed">
-            <p class='leftColumnTitle'>Feed and stuff here</p><br>
+            <p>Feed and stuff here</p><br>
             <!-- < class='leftColumnTitle'> First Tweet <br> -->
             
             <?php
@@ -59,7 +59,7 @@
 
                 if($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()){
-                        echo "<p class='leftColumnTitle'>" . $row["title"] . "</p><br>";
+                        echo "<p>" . $row["title"] . "</p><br>";
                     }
                 } else { echo "No tweets found in table."; }
 
