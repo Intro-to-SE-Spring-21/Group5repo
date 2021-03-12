@@ -81,7 +81,9 @@
 
     <!-- User info -->
     <div id="userInfo" class="col">
-        <p>User Handle</p>
+        <p id="mainUserName">UserNameHere</p>
+        <p id="mainUserHandle">UserHandleHere</p>
+        <button id="FollowButton">Follow this User</button>
     </div>
 
 </body>
