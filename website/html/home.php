@@ -74,12 +74,16 @@
 
     <!-- Beanz full message -->
     <div id="fullBeanz" class="col">
-        <p>Beanz Title</p>
+        <p id="mainBTitle">Beanz Title Goes Here. 50 char limit</p>
+        <p id="mainBText">Beanz Text Goes Here. 140 char limit</p>
+        <button id="likeButton">Like this Beanz</button>
     </div>
 
     <!-- User info -->
     <div id="userInfo" class="col">
-        <p>User Handle</p>
+        <p id="mainUserName">UserNameHere</p>
+        <p id="mainUserHandle">UserHandleHere</p>
+        <button id="FollowButton">Follow this User</button>
     </div>
 
 </body>
