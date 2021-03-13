@@ -8,6 +8,48 @@
     <!-- add links to fonts here -->
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        
+        // Tell this code to only run once the page is fully loaded.
+        $(document).ready(function(){
+            var likesCount = 8;
+            var tid = 0;
+
+            // Find out what our current amount of likes is for the current post.
+            // $.ajax({
+            //     type: "POST",
+            //     url: "get_likes.php",
+            //     datatype: "text",
+            //     data: ({tid: 2}),
+            //     success: function(likes) {
+            //         likesCount = likes;
+            //         $("#likeCount").load(likesCount); // set like count element to whatever current like count is
+            //         console.log(likesCount);
+            //     }
+            // });
+            
+            // This triggers when you click the like button
+            $("#likeButton").click(function(){
+                likesCount = likesCount + 1;
+                // console.log(likesCount)
+                tid = $("#tweetID").html(); // this data is what we POST to like_comment.php, so it knows which tweet to increment likes on
+                // console.log(tid)
+                tid.toString();
+                // console.log(tid)
+                // updates both the database(see php code) and our HTML(see documentation for .load function) total like values
+                $("#likeCount").load("like_comment.php", {
+                    tweet_id: tid,
+                    increment: true
+                }); // set likeCount element to whatever our new like count is
+            });
+
+            
+
+
+        });
+    </script>
     <header> <!-- Header bar at top -->
         <a href="home.php"> <!-- "Logo" and link back to the home page -->
             <h1>BeanzCroc</h1>
@@ -37,7 +79,6 @@
             Post a Beanz
         </a>
         <div id="feed">
-            <p>Feed and stuff here</p><br>
             <!-- < class='leftColumnTitle'> First Tweet <br> -->
             
             <?php
@@ -55,16 +96,22 @@
                 // echo 'Initial charset: '.$conn->character_set_name().'<br>';
 
 
-                $result = $conn->query("SELECT * from testtweets");
+                $result = $conn->query("SELECT * from tweets");
+
+
 
                 if($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()){
-                        echo "<p>" . $row["title"] . "</p><br>";
+                        echo "<p id='".$row["tid"]
+                        ."' class='leftColumnTitle' onclick=\"display_tweet("
+                        .$row["tid"]. ", '" .$row["tweet_title"]. "','" .$row["content"]."')\">"     // DATA FROM HERE  "','".$row["total_likes"].
+                        . $row["tweet_title"] 
+                        . "</p><br>";
+                        echo "<script></script>";
                     }
                 } else { echo "No tweets found in table."; }
 
-                // Close the connection when we're done
-                $conn->close();
+                $conn->close(); // Close the connection when we're done
             ?>
             
         </div>
@@ -74,17 +121,48 @@
 
     <!-- Beanz full message -->
     <div id="fullBeanz" class="col">
+        <p id="tweetID" hidden>tid_here</p>
         <p id="mainBTitle">Beanz Title Goes Here. 50 char limit</p>
         <p id="mainBText">Beanz Text Goes Here. 140 char limit</p>
-        <button id="likeButton">Like this Beanz</button>
+        <button id="likeButton" >Like this Beanz</button>
+        <p id="likeCount">0</p>
     </div>
 
     <!-- User info -->
     <div id="userInfo" class="col">
-        <p id="mainUserName">UserNameHere</p>
-        <p id="mainUserHandle">UserHandleHere</p>
-        <button id="FollowButton">Follow this User</button>
+        <p>User Handle</p>
     </div>
-
+ 
 </body>
 </html>
+
+
+
+<script>
+    function display_tweet(tweet_id, tweet_title, content) {
+        document.getElementById('tweetID').innerHTML = tweet_id;
+        var tid = $("#tweetID").html();
+        // $("#mainBTitle").load("get_tweet.php", {
+        //     tweet_id: tid,
+        //     column: "tweet_title"
+        // }); // set main Title element to whatever our new like count is
+        document.getElementById('mainBTitle').innerHTML = tweet_title;
+
+        // $("#mainBText").load("get_tweet.php", {
+        //     tweet_id: tid,
+        //     column: "content"
+        // }); // set likeCount element to whatever our new like count is
+        document.getElementById('mainBText').innerHTML = content;
+
+        // $("#likeCount").load("get_tweet.php", {
+        //     tweet_id: tid,
+        //     column: "total_likes"
+        // }); // set likeCount element to whatever our new like count is
+        $("#likeCount").load("like_comment.php", {
+                tweet_id: tid,
+                increment: false
+        }); 
+
+    }
+
+</script>
