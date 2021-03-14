@@ -99,14 +99,16 @@ button {
 }
 
 #feed {
+    margin-top: 2vw;
+    margin-bottom: 0;
+    border: 1px #020202 solid;
+    height: 25vw;
     float: left;
     display: inline;
-    margin-top: 2vw;
-    height: 25vw;
     width: 100%;
     font-size: 2vw;
-    border: 1px #020202 solid;
     background-color: #e3e3e3;
+    overflow: auto;
 }
 
 #feed p {
@@ -249,6 +251,19 @@ label {
 /*********
 Register Account / Login Page
 *********/
+
+.errorMessage {
+    background-color: #f5999f;
+    color: black;
+    width: 30vw;
+    margin: auto;
+    margin-bottom: 2vw;
+    font-size: 1vw;
+}
+
+.logRegForm {
+    margin-bottom: 0.15vw;
+}
 
 .registerbtn {
     width: 20vw;
