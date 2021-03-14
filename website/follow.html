@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head> <!-- Meta Data -->
+    <meta charset="utf">
+    <link rel="stylesheet" href="main.css">
+    <title>BeanzCroc</title>
+    <!-- add links to fonts here -->
+</head>
+<body>
+    <header> <!-- Header bar at top -->
+        <a href="home.php"> <!-- "Logo" and link back to the home page -->
+            <h1>BeanzCroc</h1>
+        </a>
+        <nav> <!-- Navigation buttons -->
+            <ul>
+                <li class="navButtons">
+                    <a href="settings.html">Settings</a>
+                </li>
+                <li class="navButtons">
+                    <a href="registerAccount.html">Register</a>
+                </li>
+                <li class="navButtons">
+                    <a href="loginPage.html">Login</a>
+                </li>
+                <li class="navButtons">
+                    <a href="home.php">Home</a>
+                </li>
+            </ul> 
+        </nav>
+    </header>
+    <!-- Starts the body for the follow page -->
+    <div id="folContent">
+        
+        <!-- The User's Handle and the Follower/Following titles at the top of the page-->
+        <div id="folTitles"> 
+            <h2 id="folUser">Userhandle</h2>
+            <h3 class="folTitle" id="ersTitle">Followers</h3>
+            <h3 class="folTitle" id="ingTitle">Following</h3>
+        </div>
+        
+        <!-- The Follower/Following columns div -->
+        <div id="folColWhole">
+            <!-- Followers Column -->
+            <div id="ersCol" class="folCol"> <!-- People who follow this user -->
+                
+                <!-- The folEntry divs will most likely need to be recreated in PHP in a while loop so that all followers/following users are displayed. -->
+                <!-- Comment them out and then create them in PHP with the same general format. The Profile button can be ignored for now. -->
+                <!-- Make sure that all IDs and classes carry over when replicating them in PHP -->
+                
+                <!-- 1 entry in the Follower column -->
+                <div id="ersEntry" class="folEntry">
+                    <p id="ersName">FollowerName</p>
+                    <!-- <button id="ersProfile" class="folButton">Profile</button> we don't need this just yet -->
+                    <button id="ersFollow" class="folButton">Follow</button>
+                </div>
+            </div>
+        
+            <!-- Following Column -->
+            <div id="ingCol" class="folCol"> <!-- People whom this user follows-->
+                <!-- 1 entry in the Following column -->
+                <div id="ingEntry" class="folEntry">
+                    <p id="ingName">FollowingName</p>
+                    <!-- <button id="ingProfile" class="folButton">Profile</button> we don't need this just yet -->
+                    <button id="ingFollow" class="folButton">Follow</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

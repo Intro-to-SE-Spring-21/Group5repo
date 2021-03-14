@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head> <!-- Meta Data -->
+    <meta charset="utf">
+    <link rel="stylesheet" href="main.css">
+    <title>BeanzCroc</title>
+    <!-- add links to fonts here -->
+</head>
+<body>
+    <header> <!-- Header bar at top -->
+        <a href="home.php"> <!-- "Logo" and link back to the home page -->
+            <h1>BeanzCroc</h1>
+        </a>
+        <nav> <!-- Navigation buttons -->
+            <ul>
+                <li class="navButtons">
+                    <a href="settings.html">Settings</a>
+                </li>
+                <li class="navButtons">
+                    <a href="registerAccount.html">Register</a>
+                </li>
+                <li class="navButtons">
+                    <a href="loginPage.html">Login</a>
+                </li>
+                <li class="navButtons">
+                    <a href="home.php">Home</a>
+                </li>
+            </ul> 
+        </nav>
+    </header>
+    <!-- Starts the body for the Login page -->
+
+    <h4 id="beanzBigTitle">Login to Account</h4>
+
+    <!-- For the day when we can actually tell the user their login info was wrong -->
+    <!-- <div id="login-error-msg-holder">
+        <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div> -->
+    
+    <!-- Starts HTML Form for the login part -->
+    <form method="POST" id="login-form" class="beanzForm">
+        <div id="loginForm">
+            <!-- User's handle -->
+            <label for="handle">Handle</label>
+            <input type="text" name="handle" id="username-field" class="login-form-field" placeholder="Enter Handle">
+
+            <!-- User's password -->
+            <label for="psw">Password</label>
+            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Enter Password">
+
+            <!-- Submit Button-->
+            <input type="submit" value="Login" id="login-form-submit" class="registerbtn">
+        </div>
+    </form>
+
+    <div> <!-- Link to the other page -->
+        <p class="already">Don't have an account?</p>  <a href="registerAccount.html"><p class="altBtn">Register</p></a>
+    </div>
+
+
+</body>
+</html>
