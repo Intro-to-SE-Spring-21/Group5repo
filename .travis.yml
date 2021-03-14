@@ -1,3 +1,6 @@
 language: php
 php:
   - "7.3.21"
+before_script: 
+  - chmod +x ./website/home.php
+script: ./website/home.php
