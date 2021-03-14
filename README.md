@@ -1,7 +1,5 @@
 # Group 5 Repo
 
-Access our website at http://beancrocs.ddns.net/ to see our live progress.
-
 ## Group Members
 ```
 Lundy Burns         GitHub UserName: Ydnul        Coding Languages: Python and C++            <Client-Side Development>
