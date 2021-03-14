@@ -10,16 +10,31 @@
     // echo 'Server '.$conn->server_info.'<br>';
     // echo 'Initial charset: '.$conn->character_set_name().'<br>';
 
+    $username = "anon";
 
-    $result = $conn->query("SELECT * from testtweets");
+
+    $title = "'".$_POST['bTitle']."'";
+    $body = "'".$_POST['bText']."'";
+    $insert_query = "INSERT INTO tweets (tid, tweet_title, content, date_posted) VALUES (0, ".$title.", ".$body.", current_timestamp());";
+
+    # REMEMBER: RELATE USERS TO THE TWEETS THEY POST ONCE USERS TABLE IS SET UP
+
+    //mysqli_query($conn, $query);
+    if(mysqli_query($conn, $insert_query)){
+    	echo "Records inserted successfully.<br>";
+	} else {
+	    echo "ERROR: Could not able to execute $insert_query <br>" . mysqli_error($conn);
+	}
+
+    $result = $conn->query("SELECT * from tweets");
     if($result->num_rows > 0) {
 	    while($row = $result->fetch_assoc()){
-	        echo "<p class='leftColumnTitle'>" . $row["title"] . "</p><br>";
+	        echo $row["tweet_title"] . " - " . $row["content"] . " - " . $row["tid"] . " - " . $row["date_posted"] . "<br>";
 	    }
     } else { echo "No tweets found in table."; }
-    echo $_POST['bTitle'];
-    echo "<br>";
-    echo $_POST['bText'];
+    // echo $_POST['bTitle'];
+    // echo "<br>";
+    // echo $_POST['bText'];
 
 
     // Close the connection when we're done
