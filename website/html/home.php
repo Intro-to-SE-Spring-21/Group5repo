@@ -80,7 +80,9 @@
         </a>
         <div id="feed">
             <!-- < class='leftColumnTitle'> First Tweet <br> -->
-            
+            <div id="feedTitle">
+                <h3>Feed</h3>
+            </div>
             <?php
                 // Add this before trying to access database contents
                 require_once 'login.php';
@@ -106,7 +108,7 @@
                         ."' onclick=\"display_tweet("
                         .$row["tid"]. ", '" .$row["tweet_title"]. "','" .$row["content"]."')\">"     // DATA FROM HERE  "','".$row["total_likes"].
                         . $row["tweet_title"] 
-                        . "</p><br>";
+                        . "</p>";
                         echo "<script></script>";
                     }
                 } else { echo "No tweets found in table."; }
@@ -122,16 +124,22 @@
     <!-- Beanz full message -->
     <div id="fullBeanz" class="col">
         <p id="tweetID" hidden>tid_here</p>
-        <p id="mainBTitle">Beanz Title Goes Here. 50 char limit</p>
-        <p id="mainBText">Beanz Text Goes Here. 140 char limit</p>
+        <p id="mainBTitle">The Beanz Title will appear here!</p>
+        <p id="mainBText">Please select a Beanz on the left. The Beanz Text will appear here!</p>
         <button id="likeButton" >Like this Beanz</button>
         <p id="likeCount">0</p>
     </div>
 
     <!-- User info -->
     <div id="userInfo" class="col">
-        <p id="mainUserName">UserNameHere</p>
-        <p id="mainUserHandle">UserHandleHere</p>
+        <p id="mainUserName">Username Here</p>
+        <p id="mainUserHandle">Handle Here</p>
+        <!-- <a href="userProfile.html">
+            <button id="ViewProfile">View User Profile</button>
+        </a> -->
+        <a href="follow.html">
+            <button id="ViewFollowButton">View Follows</button>
+        </a>
         <button id="FollowButton">Follow this User</button>
     </div>
  
