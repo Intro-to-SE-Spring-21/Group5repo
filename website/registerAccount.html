@@ -38,15 +38,18 @@
 
             <!-- User's handle -->
             <label for="handle">Handle</label>
-            <input type="text" placeholder="Enter Handle" name="handle" id="handle" required>
+            <input type="text" placeholder="Enter Handle" name="handle" id="handle" class="logRegForm" required>
+            <p id="errorHandle" class="errorMessage">Insert error here</p>
 
             <!-- User's password -->
             <label for="psw">Password</label>
-            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" class="logRegForm" required>
+            <p id="errorPassword" class="errorMessage">Insert error here</p>
 
             <!-- Submit Button-->
             <label for="psw-repeat">Confirm your password</label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" class="logRegForm" required>
+            <p id="errorConfirm" class="errorMessage">Insert error here</p>
 
             <!-- Submit Button -->
             <button type="submit" class="registerbtn">Register</button>
