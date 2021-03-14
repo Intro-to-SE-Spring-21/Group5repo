@@ -57,6 +57,19 @@ h1 {
 Home Page
 *********/
 
+button {
+    width: 10vw;
+    margin: auto;
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+    border-radius: 1em;
+    padding: 0.5vw;
+    font-size: 1vw;
+    display: block;
+    background-color: #800000;
+    color: #e3e3e3;
+}
+
 .col {
     margin-top: 2vw;
     margin-bottom: 2vw;
@@ -89,9 +102,8 @@ Home Page
     float: left;
     display: inline;
     margin-top: 2vw;
-    height: 23vw;
+    height: 25vw;
     width: 100%;
-    padding-top: 2vw;
     font-size: 2vw;
     border: 1px #020202 solid;
     background-color: #e3e3e3;
@@ -99,6 +111,7 @@ Home Page
 
 #feed p {
     font-size: 1vw;
+    margin-bottom: 0.5vw;
     display: block;
     color: black;
     background-color: #f3f3f3;
@@ -108,6 +121,21 @@ Home Page
 
 #feed p:hover {
     color: #800000;
+}
+
+#feedTitle {
+    border-bottom: 1px solid black;
+    margin-bottom: 0.5vw;
+}
+
+h3 {
+    font-size: 1.5vw;
+    background-color: #800000;
+    color: #f3f3f3;
+    padding-top: 0.25vw;
+    padding-bottom: 0.25vw;
+    margin-top: 0;
+    border: none;
 }
 
 #fullBeanz {
@@ -126,19 +154,9 @@ Home Page
 
 #mainBText {
     margin-top: 3vw;
+    margin-left: 0.25vw;
+    margin-right: 0.25vw;
     font-size: 1.5vw;
-}
-
-#likeButton {
-    width: 10vw;
-    margin-top: 2vw;
-    margin-bottom: 1vw;
-    border-radius: 1em;
-    padding: 0.5vw;
-    font-size: 1vw;
-    background-color: #800000;
-    color: #e3e3e3;
-    float: bottom;
 }
 
 #likeCount {
@@ -158,21 +176,25 @@ Home Page
 #mainUserName {
     font-size: 2vw;
 }
+
 #mainUserHandle {
     font-size: 1.5vw;
     margin-top: 1vw;
 }
-#FollowButton {
-    width: 10vw;
-    margin-top: 2vw;
-    margin-bottom: 1vw;
-    border-radius: 1em;
-    padding: 0.5vw;
-    font-size: 1vw;
-    background-color: #800000;
-    color: #e3e3e3;
-    float: bottom;
+
+/* Just in case
+
+#likeButton {
+    
 }
+
+#ViewFollowButton {
+    
+}
+
+#FollowButton {
+    
+} */
 
 /*********
 Post A Beanz
@@ -230,7 +252,8 @@ Register Account / Login Page
 
 .registerbtn {
     width: 20vw;
-    margin-bottom: 1vw;
+    margin-top: 0;
+    margin-bottom: 0;
     border-radius: 1em;
     padding: 0.5vw;
     font-size: 1.5vw;
@@ -259,39 +282,86 @@ Register Account / Login Page
 Follow Page
 *********/
 
-.folCol {
-    margin-top: 2vw;
-    margin-bottom: 2vw;
-    height: 30vw;
+#folUser {
+    margin: 1vw auto 0 auto;
+    font-size: 2vw;
 }
 
-#follower {
+.folTitle {
+    color: #f2f2f2;
+    margin: 1vw 0 2vw 0;
+    padding: 1vw 0 1vw 0;
     display: inline;
     float: left;
-    margin-left: 7vw;
     width: 40vw;
-    padding-top: 2vw;
+    font-size: 2vw;
+    border: 1px #020202 solid;
+    background-color: #800000;
+}
+
+#ersTitle {
+    float: left; 
+    margin-left: 7vw;
+}
+
+#ingTitle {
+    float: right;
+    margin-right: 7vw;
+}
+
+.folCol {
+    display: inline;
+    margin-bottom: 2vw;
+    height: 30vw;
+    width: 40vw;
+    padding-top: 0.5vw;
     font-size: 2vw;
     border: 1px #020202 solid;
     background-color: #e3e3e3;
 }
 
-#following {
-    display: inline;
+.folButton {
+    display: inline-block;
+    font-size: 0.75vw;
+    margin-top: 0;
+    margin-bottom: 0.35vw;
+    width: 5vw;
+    height: 1.5vw;
+    padding: 0;
+    color: #f2f2f2;
+}
+
+#ersCol {
+    float: left;
+    margin-left: 7vw;
+}
+
+#ingCol {
     float: right;
     margin-right: 7vw;
-    width: 40vw;
-    padding-top: 2vw;
-    font-size: 2vw;
-    border: 1px #020202 solid;
-    background-color: #e3e3e3;
 }
+
+#ersName {
+    font-size: 1.5vw;
+    display: inline;
+}
+
+#ingName {
+    font-size: 1.5vw;
+    display: inline;
+}
+
+.folEntry {
+    background-color: #f3f3f3;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-bottom: 0.75vw;
+}
+
 
 /*********
 Settings
-#idk {
-    color: #fff;
-}
+
 Let's not do this just yet.
 *********/
 
