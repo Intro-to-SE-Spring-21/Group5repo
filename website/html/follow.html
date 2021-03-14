@@ -23,22 +23,37 @@
                     <a href="loginPage.html">Login</a>
                 </li>
                 <li class="navButtons">
-                    <a href="index.html">Home</a>
+                    <a href="home.php">Home</a>
                 </li>
             </ul> 
         </nav>
     </header>
     <!-- Starts the body for the follow page -->
-    <!-- Beanz full message -->
-    <div id="follower" class="folCol">
-        <p>Followers</p>
+    <div id="folContent">
+        <div id="folTitles"> 
+            <h2 id="folUser">Userhandle</h2>
+            <h3 class="folTitle" id="ersTitle">Followers</h3>
+            <h3 class="folTitle" id="ingTitle">Following</h3>
+        </div>
+        <div id="folColWhole">
+            <!-- Followers Column -->
+            <div id="ersCol" class="folCol"> <!-- People who follow this user -->
+                <div id="ersEntry" class="folEntry">
+                    <p id="ersName">FollowerName</p>
+                    <!-- <button id="ersProfile" class="folButton">Profile</button> -->
+                    <button id="ersFollow" class="folButton">Follow</button>
+                </div>
+            </div>
+        
+            <!-- Following Column -->
+            <div id="ingCol" class="folCol"> <!-- People whom this user follows -->
+                <div id="ingEntry" class="folEntry">
+                    <p id="ingName">FollowingName</p>
+                    <!-- <button id="ingProfile" class="folButton">Profile</button> -->
+                    <button id="ingFollow" class="folButton">Follow</button>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- User info -->
-    <div id="following" class="folCol">
-        <p>Following</p>
-    </div>
-    
-
 </body>
 </html>
