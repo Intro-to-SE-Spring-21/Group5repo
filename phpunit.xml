@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="mysite/PHP/bootstrap.php" colors="true">
+  <!--phpmyadmin/db_structure.php?server=1&db=beanz-->
+    <php>
+        <var name="db_dsn" value="mysql:dbname=beanz;host=127.0.0.1"/>
+        <var name="db_username" value="root"/>
+        <var name="db_password" value=""/>
+    </php>
+
+    <testsuites>
+        <testsuite name="Hello World Test Suite">
+            <directory>./mysite/</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>./</directory>
+            <exclude>
+                <directory>./mysite</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
