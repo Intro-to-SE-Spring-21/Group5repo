@@ -1,3 +1,20 @@
+<?php 
+    if( session_status() != 2 ) {
+        session_start();
+    }
+
+    $logged_in = False;
+    if (isset($_SESSION["handle"])){
+        // echo $_SESSION["handle"];
+        $logged_in = True;
+
+    } else {
+        // echo "Username is not set.";
+        $logged_in = False;
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head> <!-- Meta Data -->
@@ -16,7 +33,7 @@
         $(document).ready(function(){
             var likesCount = 8;
             var tid = 0;
-
+            var postHandle = "";
             // Find out what our current amount of likes is for the current post.
             // $.ajax({
             //     type: "POST",
@@ -45,6 +62,52 @@
                 }); // set likeCount element to whatever our new like count is
             });
 
+            $("#ViewFollowButton").click(function(){
+                postHandle = $("#mainUserHandle").html();
+                postHandle.toString();
+                console.log(postHandle);
+                // Simulate a mouse click:
+                window.location.href = "follow.php?handle="+postHandle;
+            });
+
+
+            $("#FollowButton").click(function(){
+                var xhttp = new XMLHttpRequest();
+                postHandle = $("#mainUserHandle").html();
+                postHandle.toString();
+                var loggedInUser = '<?php 
+                    if (isset($_SESSION["handle"])) {
+                        echo $_SESSION["handle"];
+                    } else {
+                        echo "";
+                    }
+
+                ?>';
+
+                if (loggedInUser == ""){
+                    alert("Please log in to follow a user.");
+                } else if (postHandle == "Handle Here") {
+                    alert("Can't follow a non-existant user. Try clicking a post before attempting to follow a user.");
+                } else {
+                    xhttp.open("GET", "follow_user.php", false);
+                    xhttp.send("handle_follower="+loggedInUser+"&"+"handle_following="+postHandle); // NOTE: ANYONE CAN MAKE ANY USER FOLLOW ANY OTHER USER. WE SHOULD REQUIRE A PASSWORD OR SOMETHING.
+                    var results = xhttp.responseText;
+                    console.log(results);
+                    $("#FollowButton").load("follow_user.php", {
+                        follower: loggedInUser,
+                        following: postHandle
+                    });
+                    // window.location.href = "follow.php?handle="+postHandle;
+                }
+                console.log(loggedInUser  + " " + postHandle);
+
+
+                // postHandle.toString();
+                // console.log(postHandle);
+                // // Simulate a mouse click:
+                // window.location.href = "follow.php?handle="+postHandle;
+            });
+
             
 
 
@@ -59,12 +122,23 @@
                 <li class="navButtons">
                     <a href="settings.html">Settings</a>
                 </li>
-                <li class="navButtons">
-                    <a href="registerAccount.html">Register</a>
-                </li>
-                <li class="navButtons">
-                    <a href="loginPage.html">Login</a>
-                </li>
+
+                <?php 
+                    if ($logged_in == False){
+                        echo "<li class='navButtons'>
+                        <a href='registerAccount.php'>Register</a></li>";
+
+                        echo "<li class='navButtons'>
+                        <a href='loginPage.php'>Login</a></li>";
+                    } else {
+                        echo "<li class='navButtons'>
+                        <a href='userProfile.html'>".$_SESSION["handle"]."</a></li>";
+
+                        echo "<li class='navButtons'>
+                        <a href='clear_session.php'>Logout</a></li>";
+                    }
+                    
+                ?>
                 <li class="navButtons">
                     <a href="home.php">Home</a>
                 </li>
@@ -75,7 +149,7 @@
 
     <!-- Post a Beanz / Feed -->
     <div id="leftCol" class="col">
-        <a href="postABeanz.html" id="postBeanz">
+        <a href="postABeanz.php" id="postBeanz">
             Post a Beanz
         </a>
         <div id="feed">
@@ -106,7 +180,7 @@
                     while($row = $result->fetch_assoc()){
                         echo "<p id='".$row["tid"]
                         ."' onclick=\"display_tweet("
-                        .$row["tid"]. ", '" .$row["tweet_title"]. "','" .$row["content"]."')\">"     // DATA FROM HERE  "','".$row["total_likes"].
+                        .$row["tid"]. ", '" .$row["tweet_title"]. "','" .$row["content"]. "','" . $row["handle"]. "','" .$row["handle"] ."')\">"     // DATA FROM HERE  "','".$row["total_likes"].
                         . $row["tweet_title"] 
                         . "</p>";
                         echo "<script></script>";
@@ -137,19 +211,21 @@
         <!-- <a href="userProfile.html">
             <button id="ViewProfile">View User Profile</button>
         </a> -->
-        <a href="follow.html">
             <button id="ViewFollowButton">View Follows</button>
-        </a>
         <button id="FollowButton">Follow this User</button>
     </div>
  
+
+
+
 </body>
+
 </html>
 
 
 
 <script>
-    function display_tweet(tweet_id, tweet_title, content) {
+    function display_tweet(tweet_id, tweet_title, content, handle, username) {
         document.getElementById('tweetID').innerHTML = tweet_id;
         var tid = $("#tweetID").html();
         // $("#mainBTitle").load("get_tweet.php", {
@@ -164,6 +240,10 @@
         // }); // set likeCount element to whatever our new like count is
         document.getElementById('mainBText').innerHTML = content;
 
+        document.getElementById('mainUserName').innerHTML = handle;
+        document.getElementById('mainUserHandle').innerHTML = username;
+
+
         // $("#likeCount").load("get_tweet.php", {
         //     tweet_id: tid,
         //     column: "total_likes"
@@ -171,7 +251,7 @@
         $("#likeCount").load("like_comment.php", {
                 tweet_id: tid,
                 increment: false
-        }); 
+        });
 
     }
 </script>

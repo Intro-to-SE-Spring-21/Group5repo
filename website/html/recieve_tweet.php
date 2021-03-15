@@ -15,7 +15,8 @@
 
     $title = "'".$_POST['bTitle']."'";
     $body = "'".$_POST['bText']."'";
-    $insert_query = "INSERT INTO tweets (tid, tweet_title, content, date_posted) VALUES (0, ".$title.", ".$body.", current_timestamp());";
+    $handle = "'".$_POST['bSubmit']."'";
+    $insert_query = "INSERT INTO tweets (tid, handle, tweet_title, content, date_posted) VALUES (0, ".$handle.", ".$title.", ".$body.", current_timestamp());";
 
     # REMEMBER: RELATE USERS TO THE TWEETS THEY POST ONCE USERS TABLE IS SET UP
 
@@ -42,5 +43,5 @@
 
 	// echo $_POST['bTitle'];
 	// echo $_POST['bText'];
-	// header("Location: home.php");
+	header("Location: home.php");
 ?>

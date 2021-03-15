@@ -250,6 +250,19 @@ label {
 Register Account / Login Page
 *********/
 
+.errorMessage {
+    background-color: #f5999f;
+    color: black;
+    width: 30vw;
+    margin: auto;
+    margin-bottom: 2vw;
+    font-size: 1.5vw;
+}
+
+.logRegForm {
+    margin-bottom: 0.15vw;
+}
+
 .registerbtn {
     width: 20vw;
     margin-top: 0;
