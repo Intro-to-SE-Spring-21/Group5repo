@@ -31,22 +31,19 @@
     <!-- Starts the body for the Login page -->
 
     <h4 id="beanzBigTitle">Login to Account</h4>
-
-    <!-- For the day when we can actually tell the user their login info was wrong -->
-    <!-- <div id="login-error-msg-holder">
-        <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
-    </div> -->
     
     <!-- Starts HTML Form for the login part -->
     <form method="POST" id="login-form" class="beanzForm">
         <div id="loginForm">
             <!-- User's handle -->
             <label for="handle">Handle</label>
-            <input type="text" name="handle" id="username-field" class="login-form-field" placeholder="Enter Handle">
+            <input type="text" name="handle" id="username-field" class="login-form-field, logRegForm" placeholder="Enter Handle">
+            <p id="errorHandle" class="errorMessage">Insert error here</p>
 
             <!-- User's password -->
             <label for="psw">Password</label>
-            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Enter Password">
+            <input type="password" name="password" id="password-field" class="login-form-field, logRegForm" placeholder="Enter Password">
+            <p id="errorPassword" class="errorMessage">Insert error here</p>
 
             <!-- Submit Button-->
             <input type="submit" value="Login" id="login-form-submit" class="registerbtn">
