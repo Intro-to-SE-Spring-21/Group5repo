@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
 <head> <!-- Meta Data -->
-    <meta charset="utf">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
     <title>BeanzCroc</title>
@@ -139,6 +139,7 @@
                     }
                     
                 ?>
+
                 <li class="navButtons">
                     <a href="home.php">Home</a>
                 </li>
@@ -153,7 +154,6 @@
             Post a Beanz
         </a>
         <div id="feed">
-            <!-- < class='leftColumnTitle'> First Tweet <br> -->
             <div id="feedTitle">
                 <h3>Feed</h3>
             </div>
@@ -200,7 +200,7 @@
         <p id="tweetID" hidden>tid_here</p>
         <p id="mainBTitle">The Beanz Title will appear here!</p>
         <p id="mainBText">Please select a Beanz on the left. The Beanz Text will appear here!</p>
-        <button id="likeButton" >Like this Beanz</button>
+        <button id="likeButton">Like this Beanz</button>
         <p id="likeCount">0</p>
     </div>
 
@@ -211,15 +211,11 @@
         <!-- <a href="userProfile.html">
             <button id="ViewProfile">View User Profile</button>
         </a> -->
-            <button id="ViewFollowButton">View Follows</button>
+        <button id="ViewFollowButton">View Follows</button>
         <button id="FollowButton">Follow this User</button>
     </div>
  
-
-
-
 </body>
-
 </html>
 
 

@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
 <head> <!-- Meta Data -->
-    <meta charset="utf">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
     <title>BeanzCroc</title>
     <!-- add links to fonts here -->
@@ -50,6 +50,7 @@
                     }
                     
                 ?>
+
                 <li class="navButtons">
                     <a href="home.php">Home</a>
                 </li>
@@ -88,11 +89,9 @@
                                     </div>";
                         }
                     } else { echo "No followers"; }
-                    
-                    
-
                 ?>
-<!--                 <div id="ersEntry" class="folEntry">
+
+                <!--<div id="ersEntry" class="folEntry">
                     <p id="ersName">FollowerName</p>
                     <button id="ersProfile" class="folButton">Profile</button> we don't need this just yet
                     <button id="ersFollow" class="folButton">Follow</button>
@@ -112,15 +111,11 @@
                     $result = $database->get_following($_GET["handle"]);
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            echo "<div id='ersEntry' class='folEntry'>
-                                    <p id='ersName'>".$row["following_handle"]."</p>
-                                    
+                            echo "<div id='ingEntry' class='folEntry'>
+                                    <p id='ingName'>".$row["following_handle"]."</p>
                                     </div>";
                         }
                     } else { echo "Not following anyone"; }
-                    
-                    
-
                 ?>
             </div>
         </div>

@@ -20,7 +20,7 @@
 <!DOCTYPE html>
 <html>
 <head> <!-- Meta Data -->
-    <meta charset="utf">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
     <title>BeanzCroc</title>
     <!-- add links to fonts here -->
@@ -87,7 +87,7 @@
 
 <body>
     <header> <!-- Header bar at top -->
-        <a href="loginPage.php"> <!-- "Logo" and link back to the home page -->
+        <a href="home.php"> <!-- "Logo" and link back to the home page -->
             <h1>BeanzCroc</h1>
         </a>
         <nav> <!-- Navigation buttons -->
@@ -112,6 +112,7 @@
                     }
                     
                 ?>
+
                 <li class="navButtons">
                     <a href="home.php">Home</a>
                 </li>
@@ -128,18 +129,18 @@
 
             <!-- User's handle -->
             <label for="handle">Handle</label>
-            <input type="text" placeholder="Enter Handle" name="handle" id="handle" required value=<?php echo '"'.$handle.'"'; ?> >
+            <input type="text" placeholder="Enter Handle" name="handle" id="handle" value=<?php echo '"'.$handle.'"'; ?> required>
             <p class="errorMessage"><?php echo $error1; ?></p>
 
             <!-- User's password -->
             <label for="pass">Password</label>
-            <input type="password" placeholder="Enter Password" name="pass" id="pass" required value=<?php echo '"'.$pass.'"'; ?> >
+            <input type="password" placeholder="Enter Password" name="pass" id="pass" value=<?php echo '"'.$pass.'"'; ?> required>
             <p class="errorMessage"><?php echo $error2; ?></p>
 
             <!-- Submit Button-->
             <label for="pass_conf">Confirm your password</label>
             <input type="password" placeholder="Repeat Password" name="pass_conf" id="pass_conf" value=<?php echo '"'.$pass_conf.'"'; ?> required>
-            <p class="errorMessage"><?php echo $error3; ?></p>
+            <p id="errorConfirm" class="errorMessage"><?php echo $error3; ?></p>
 
             <!-- Submit Button -->
             <button type="submit" class="registerbtn" name="submit">Register</button>

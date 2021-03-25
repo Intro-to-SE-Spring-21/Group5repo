@@ -11,6 +11,7 @@
     } else {
         // echo "Username is not set.";
         $logged_in = False;
+        header("Location: home.php");
     }
 
 ?>
@@ -18,7 +19,7 @@
 <!DOCTYPE html>
 <html>
 <head> <!-- Meta Data -->
-    <meta charset="utf">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
     <title>BeanzCroc</title>
     <!-- add links to fonts here -->
@@ -50,6 +51,7 @@
                     }
                     
                 ?>
+
                 <li class="navButtons">
                     <a href="home.php">Home</a>
                 </li>

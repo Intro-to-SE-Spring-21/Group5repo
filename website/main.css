@@ -4,10 +4,10 @@ General
 
 * {
     color: #020202;
+    list-style: none;
     margin: 0;
     padding: 0;
     text-decoration: none;
-    list-style: none;
     text-align: center;
 }
 
@@ -20,10 +20,10 @@ a {
 Header
 *********/
 header {
-    padding-left: 2vw;
+    background-color: #800000;
     height: 5vw;
     padding-bottom: 0.5vw;
-    background-color: #800000;
+    padding-left: 2vw;
 }
 
 h1 {
@@ -99,14 +99,16 @@ button {
 }
 
 #feed {
+    margin-top: 2vw;
+    margin-bottom: 0;
+    border: 1px #020202 solid;
+    height: 25vw;
     float: left;
     display: inline;
-    margin-top: 2vw;
-    height: 25vw;
     width: 100%;
     font-size: 2vw;
-    border: 1px #020202 solid;
     background-color: #e3e3e3;
+    overflow: auto;
 }
 
 #feed p {
@@ -182,20 +184,6 @@ h3 {
     margin-top: 1vw;
 }
 
-/* Just in case
-
-#likeButton {
-    
-}
-
-#ViewFollowButton {
-    
-}
-
-#FollowButton {
-    
-} */
-
 /*********
 Post A Beanz
 *********/
@@ -256,7 +244,11 @@ Register Account / Login Page
     width: 30vw;
     margin: auto;
     margin-bottom: 2vw;
-    font-size: 1.5vw;
+    font-size: 1vw;
+}
+
+#errorConfirm {
+    margin-bottom: 1vw;
 }
 
 .logRegForm {

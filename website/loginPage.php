@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
 <head> <!-- Meta Data -->
-    <meta charset="utf">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
     <title>BeanzCroc</title>
     <!-- add links to fonts here -->
@@ -106,11 +106,6 @@
     <!-- Starts the body for the Login page -->
 
     <h4 id="beanzBigTitle">Login to Account</h4>
-
-    <!-- For the day when we can actually tell the user their login info was wrong -->
-    <!-- <div id="login-error-msg-holder">
-        <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
-    </div> -->
     
     <!-- Starts HTML Form for the login part -->
     <form method="POST" id="login-form" action="loginPage.php" class="beanzForm">
