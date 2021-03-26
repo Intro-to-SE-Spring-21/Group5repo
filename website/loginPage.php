@@ -16,12 +16,12 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 <head> <!-- Meta Data -->
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="main.css">
-    <title>BeanzCroc</title>
-    <!-- add links to fonts here -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>BeanzCroc</title>
 </head>
 
 
@@ -71,64 +71,67 @@
 
 
 <body>
-    <header> <!-- Header bar at top -->
-        <a href="home.php"> <!-- "Logo" and link back to the home page -->
-            <h1>BeanzCroc</h1>
-        </a>
-        <nav> <!-- Navigation buttons -->
-            <ul>
-                <li class="navButtons">
-                    <a href="settings.html">Settings</a>
-                </li>
+  <header> <!-- Header bar at top -->
+  <a href="home.php"> <!-- "Logo" and link back to the home page -->
+    <h1>BeanzCroc</h1>
+  </a>
+  <nav> <!-- Navigation buttons -->
+    <ul>
+      <li class="navButtons">
+        <a href="settings.html">Settings</a>
+      </li>
 
-                <?php 
-                    if ($logged_in == False){
-                        echo "<li class='navButtons'>
-                        <a href='registerAccount.php'>Register</a></li>";
+      <?php 
+          if ($logged_in == False){
+              echo "<li class='navButtons'>
+                  <a href='registerAccount.php'>Register</a></li>";
 
-                        echo "<li class='navButtons'>
-                        <a href='loginPage.php'>Login</a></li>";
-                    } else {
-                        echo "<li class='navButtons'>
-                        <a href='userProfile.html'>".$_SESSION["handle"]."</a></li>";
+              echo "<li class='navButtons'>
+                  <a href='loginPage.php'>Login</a></li>";
+          } else {
+              echo "<li class='navButtons'>
+                  <a href='userProfile.html'>".$_SESSION["handle"]."</a></li>";
 
-                        echo "<li class='navButtons'>
-                        <a href='clear_session.php'>Logout</a></li>";
-                    }
-                    
-                ?>
-                <li class="navButtons">
-                    <a href="home.php">Home</a>
-                </li>
-            </ul> 
-        </nav>
-    </header>
-    <!-- Starts the body for the Login page -->
+              echo "<li class='navButtons'>
+                  <a href='clear_session.php'>Logout</a></li>";
+          }           
+      ?>
 
-    <h4 id="beanzBigTitle">Login to Account</h4>
+      <li class="navButtons">
+        <a href="home.php">Home</a>
+      </li>
+    </ul> 
+  </nav>
+  </header>
+
+  <!-- Starts the body for the Login page -->
+
+  <h4 id="beanzBigTitle">Login to Account</h4>
     
-    <!-- Starts HTML Form for the login part -->
-    <form method="POST" id="login-form" action="loginPage.php" class="beanzForm">
-        <div id="loginForm">
-            <!-- User's handle -->
-            <label for="handle">Handle</label>
-            <input type="text" name="handle" id="username-field" class="login-form-field" placeholder="Enter Handle" value=<?php echo "'".$handle."'" ?> >
+  <!-- Starts HTML Form for the login part -->
+  <form method="POST" id="login-form" action="loginPage.php" class="beanzForm">
+    <div id="loginForm">
+      
+      <!-- User's handle -->
+      <label for="handle">Handle</label>
+      <input name="handle" placeholder="Enter Handle" type="text" class="login-form-field" id="username-field" value=<?php echo "'".$handle."'" ?> >
 
+      <!-- User's password -->
+      <label for="psw">Password</label>
+      <input name="password" placeholder="Enter Password" type="password" class="login-form-field" id="password-field">
+      <p id="errorMsg" class="errorMessage"><?php echo "".$error0."" ?></p>
 
-            <!-- User's password -->
-            <label for="psw">Password</label>
-            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Enter Password">
-
-            <!-- Submit Button-->
-            <input type="submit" value="Login" id="login-form-submit" name="submit" class="registerbtn">
-            <p id="errorMsg" class="errorMessage"><?php echo "".$error0."" ?></p>
-        </div>
-    </form>
-
-    <div> <!-- Link to the other page -->
-        <p class="already">Don't have an account?</p>  <a href="registerAccount.php"><p class="altBtn">Register</p></a>
+      <!-- Submit Button-->
+      <input name="submit" type="submit" class="formButton regLogButton" id="login-form-submit" value="Login">
     </div>
+  </form>
 
+  <div> <!-- Link to the other page -->
+    <p class="already">Don't have an account?</p>  
+    <a href="registerAccount.php">
+      <p class="altBtn">Register</p>
+    </a>
+  </div>
 
 </body>
 </html>
