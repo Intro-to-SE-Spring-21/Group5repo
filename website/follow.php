@@ -92,20 +92,18 @@
         ?>
 
         <!-- 1 entry in the Follower column -->
-        <!-- <div id="ersEntry" class="folEntry">
-          <p id="ersName">FollowerName</p>
-          <button id="ersProfile" class="folButton">Profile</button> we don't need this just yet
-          <button id="ersFollow" class="folButton">Follow</button>
+        <!-- <div class="nameListEntry">
+          <p class="nameListP">FollowerName</p>
+          <button id="nameListProfile" class="folButton">Profile</button> we don't need this just yet
         </div> -->
       </div>
         
       <!-- Following Column -->
       <div class="folCol nameListCol colRight"> <!-- People whom this user follows-->
         <!-- 1 entry in the Following column -->
-        <!-- <div id="ingEntry" class="folEntry">
-          <p id="ingName">FollowingName</p>
-          <button id="ingProfile" class="folButton">Profile</button> we don't need this just yet
-          <button id="ingFollow" class="folButton">Follow</button>
+        <!-- <div class="nameListEntry">
+          <p class="nameListP">FollowingName</p>
+          <button id="nameListProfile" class="folButton">Profile</button> we don't need this just yet
         </div> -->
 
         <?php 
