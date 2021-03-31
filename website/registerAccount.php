@@ -18,12 +18,12 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 <head> <!-- Meta Data -->
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="main.css">
-    <title>BeanzCroc</title>
-    <!-- add links to fonts here -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>BeanzCroc</title>
 </head>
 
 <?php 
@@ -86,82 +86,83 @@
 ?>
 
 <body>
-    <header> <!-- Header bar at top -->
-        <a href="home.php"> <!-- "Logo" and link back to the home page -->
-            <h1>BeanzCroc</h1>
-        </a>
-        <nav> <!-- Navigation buttons -->
-            <ul>
-                <li class="navButtons">
-                    <a href="settings.html">Settings</a>
-                </li>
+  <header> <!-- Header bar at top -->
+    <a href="home.php"> <!-- "Logo" and link back to the home page -->
+      <h1>BeanzCroc</h1>
+    </a>
+    <nav> <!-- Navigation buttons -->
+      <ul>
+        <li class="navButtons">
+          <a href="settings.html">Settings</a>
+        </li>
 
-                <?php 
-                    if ($logged_in == False){
-                        echo "<li class='navButtons'>
-                        <a href='registerAccount.php'>Register</a></li>";
+        <?php 
+            if ($logged_in == False){
+                echo "<li class='navButtons'>
+                <a href='registerAccount.php'>Register</a></li>";
 
-                        echo "<li class='navButtons'>
-                        <a href='loginPage.php'>Login</a></li>";
-                    } else {
-                        echo "<li class='navButtons'>
-                        <a href='userProfile.html'>".$_SESSION["handle"]."</a></li>";
+                echo "<li class='navButtons'>
+                <a href='loginPage.php'>Login</a></li>";
+            } else {
+                echo "<li class='navButtons'>
+                <a href='userProfile.html'>".$_SESSION["handle"]."</a></li>";
 
-                        echo "<li class='navButtons'>
-                        <a href='clear_session.php'>Logout</a></li>";
-                    }
-                    
-                ?>
+                echo "<li class='navButtons'>
+                <a href='clear_session.php'>Logout</a></li>";
+            }            
+        ?>
 
-                <li class="navButtons">
-                    <a href="home.php">Home</a>
-                </li>
-            </ul> 
-        </nav>
-    </header>
-    <!-- Starts the body for the Register Account page -->
-
-    <h4 id="beanzBigTitle">Register Account <?php echo $error0; ?></h4>
-
-    <!-- Starts HTML Form for the register part -->
-    <form method="POST" action="registerAccount.php" class="beanzForm">
-        <div id="regForm">
-
-            <!-- User's handle -->
-            <label for="handle">Handle</label>
-            <input type="text" placeholder="Enter Handle" name="handle" id="handle" value=<?php echo '"'.$handle.'"'; ?> required>
-            <p class="errorMessage"><?php echo $error1; ?></p>
-
-            <!-- User's password -->
-            <label for="pass">Password</label>
-            <input type="password" placeholder="Enter Password" name="pass" id="pass" value=<?php echo '"'.$pass.'"'; ?> required>
-            <p class="errorMessage"><?php echo $error2; ?></p>
-
-            <!-- Submit Button-->
-            <label for="pass_conf">Confirm your password</label>
-            <input type="password" placeholder="Repeat Password" name="pass_conf" id="pass_conf" value=<?php echo '"'.$pass_conf.'"'; ?> required>
-            <p id="errorConfirm" class="errorMessage"><?php echo $error3; ?></p>
-
-            <!-- Submit Button -->
-            <button type="submit" class="registerbtn" name="submit">Register</button>
-        </div>
-    </form>
-
-        <div> <!-- Link to the other page -->
-            <p class="already">Already have an account?</p>  <a href="loginPage.php"><p class="altBtn">Login</p></a>
-        </div>
-
-        <div>
-            <?php
-                // echo "<br>POSTED VALUES:<br>";
-                // echo "handle: " . $handle . " " . $error1;
-                // echo "<br><br>";
-                // echo "pass: " . $pass . " " . $error2;
-                // echo "<br><br>";
-                // echo "pass_conf: " . $pass_conf . " " . $error3;
-            ?>
-        </div>
+        <li class="navButtons">
+          <a href="home.php">Home</a>
+        </li>
+      </ul> 
+    </nav>
+  </header>
     
+  <!-- Starts the body for the Register Account page -->
+  <h4 id="beanzBigTitle">Register Account <?php echo $error0; ?></h4>
+
+  <!-- Starts HTML Form for the register part -->
+  <form method="POST" action="registerAccount.php" class="beanzForm">
+    <div id="regForm">
+
+      <!-- User's Handle -->
+      <label for="handle">Handle</label>
+      <input name="handle" placeholder="Enter Handle" type="text" id="handle" value=<?php echo '"'.$handle.'"'; ?> required>
+      <p class="errorMessage"><?php echo $error1; ?></p>
+
+      <!-- User's Password -->
+      <label for="pass">Password</label>
+      <input name="pass" placeholder="Enter Password" type="password" id="pass" value=<?php echo '"'.$pass.'"'; ?> required>
+      <p class="errorMessage"><?php echo $error2; ?></p>
+
+      <!-- Confirm User's password -->
+      <label for="pass_conf">Confirm your password</label>
+      <input name="pass_conf" placeholder="Repeat Password" type="password" id="pass_conf" value=<?php echo '"'.$pass_conf.'"'; ?> required>
+      <p id="errorConfirm" class="errorMessage"><?php echo $error3; ?></p>
+
+      <!-- Submit Button -->
+      <button name="submit" type="submit" class="formButton regLogButton">Register</button>
+    </div>
+  </form>
+
+  <div> <!-- Link to the other page -->
+    <p class="already">Already have an account?</p>  
+    <a href="loginPage.php">
+      <p class="altBtn">Login</p>
+    </a>
+  </div>
+
+  <div>
+    <?php
+        // echo "<br>POSTED VALUES:<br>";
+        // echo "handle: " . $handle . " " . $error1;
+        // echo "<br><br>";
+        // echo "pass: " . $pass . " " . $error2;
+        // echo "<br><br>";
+        // echo "pass_conf: " . $pass_conf . " " . $error3;
+    ?>
+  </div>
 
 </body>
 </html>
