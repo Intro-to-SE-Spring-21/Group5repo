@@ -64,7 +64,7 @@
 			        	$credentials_valid = True;
 			        }
 			    }
-		    } else { echo "No user found: ".$handle; }
+		    } //else { echo "No user found: ".$handle; }
 		    return($credentials_valid);
 		}
 
