@@ -12,7 +12,9 @@
         // echo "Username is not set.";
         $logged_in = False;
     }
-
+    $viewProfErr = "";
+    $viewFollowsErr = "";
+    $followErr = "";
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +30,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <script>
+    
+    function clearErrors(){
+        document.getElementById("followErr").innerHTML = "";
+
+    }
     // Tell this code to only run once the page is fully loaded.
     $(document).ready(function(){
             var likesCount = 8;
             var tid = 0;
             var postHandle = "";
+
             // Find out what our current amount of likes is for the current post.
             // $.ajax({
             //     type: "POST",
@@ -48,6 +56,7 @@
             
             // This triggers when you click the like button
             $("#likeButton").click(function(){
+                clearErrors();
                 likesCount = likesCount + 1;
                 // console.log(likesCount)
                 tid = $("#tweetID").html(); // this data is what we POST to like_comment.php, so it knows which tweet to increment likes on
@@ -62,6 +71,7 @@
             });
 
             $("#ViewFollowButton").click(function(){
+                clearErrors();
                 postHandle = $("#mainUserHandle").html();
                 postHandle.toString();
                 console.log(postHandle);
@@ -71,6 +81,7 @@
 
 
             $("#FollowButton").click(function(){
+                clearErrors();
                 var xhttp = new XMLHttpRequest();
                 postHandle = $("#mainUserHandle").html();
                 postHandle.toString();
@@ -88,17 +99,26 @@
                 } else if (postHandle == "Handle Here") {
                     alert("Can't follow a non-existent user. Try clicking a post before attempting to follow a user.");
                 } else {
-                    xhttp.open("GET", "follow_user.php", false);
-                    xhttp.send("handle_follower="+loggedInUser+"&"+"handle_following="+postHandle); // NOTE: ANYONE CAN MAKE ANY USER FOLLOW ANY OTHER USER. WE SHOULD REQUIRE A PASSWORD OR SOMETHING.
-                    var results = xhttp.responseText;
-                    console.log(results);
-                    $("#FollowButton").load("follow_user.php", {
-                        follower: loggedInUser,
-                        following: postHandle
-                    });
+                    
+                    // console.log(loggedInUser, postHandle);
+                    // We will do this to make it harder for a user to follow themselves... Still not impossible though.
+                    if (loggedInUser != postHandle) {
+                        xhttp.open("GET", "follow_user.php", false);
+                        xhttp.send("handle_follower="+loggedInUser+"&"+"handle_following="+postHandle); // NOTE: ANYONE CAN MAKE ANY USER FOLLOW ANY OTHER USER. WE SHOULD REQUIRE A PASSWORD OR SOMETHING.
+                        var results = xhttp.responseText;
+                        console.log(results);
+
+                        $("#FollowButton").load("follow_user.php", {
+                            follower: loggedInUser,
+                            following: postHandle
+                        });
+                    } else {
+                        document.getElementById("followErr").innerHTML = "You cannot follow yourself.";
+
+                    }
                     // window.location.href = "follow.php?handle="+postHandle;
                 }
-                console.log(loggedInUser  + " " + postHandle);
+                // console.log(loggedInUser  + " " + postHandle);
 
 
                 // postHandle.toString();
@@ -203,9 +223,12 @@
   <div id="userInfo" class="col">
     <p class="colUser" id="mainUserName">Username Here</p>
     <p class="colHandle" id="mainUserHandle">Handle Here</p>
-    <button id="ViewProfile">View User Profile</button>
+    <button id="viewProfErr">View User Profile</button>
+    <p id="errorMsg" class="errorMessage"><?php echo "".$viewProfErr."" ?></p>
     <button id="ViewFollowButton">View Follows</button>
+    <p id="viewFollowsErr" class="errorMessage"><?php echo "".$viewFollowsErr."" ?></p>
     <button id="FollowButton">Follow this User</button>
+    <p id="followErr" class="errorMessage"><?php echo "".$followErr."" ?></p>
   </div>
 
 </body>
