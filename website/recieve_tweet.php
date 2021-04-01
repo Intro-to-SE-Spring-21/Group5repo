@@ -15,8 +15,6 @@
 
     $title = "'".$_POST['bTitle']."'";
     $body = $_POST['bText'];
-    $foundat = NaN;
-    $done == false;
     $body = str_replace("'","\'",$body);
     $body = "'".$body."'";
     echo $body;
