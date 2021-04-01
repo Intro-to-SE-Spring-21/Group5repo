@@ -72,6 +72,14 @@
             var likesCount = 8;
             var tid = 0;
             var postHandle = "";
+            var loggedInUser = '<?php 
+                    if (isset($_SESSION["handle"])) {
+                        echo $_SESSION["handle"];
+                    } else {
+                        echo "";
+                    }
+
+                ?>';
 
             // Find out what our current amount of likes is for the current post.
             // $.ajax({
@@ -89,17 +97,21 @@
             // This triggers when you click the like button
             $("#likeButton").click(function(){
                 clearErrors();
-                likesCount = likesCount + 1;
-                // console.log(likesCount)
-                tid = $("#tweetID").html(); // this data is what we POST to like_comment.php, so it knows which tweet to increment likes on
-                // console.log(tid)
-                tid.toString();
-                // console.log(tid)
-                // updates both the database(see php code) and our HTML(see documentation for .load function) total like values
-                $("#likeCount").load("like_comment.php", {
-                    tweet_id: tid,
-                    increment: true
-                }); // set likeCount element to whatever our new like count is
+                if (loggedInUser != ""){
+                    likesCount = likesCount + 1;
+                    // console.log(likesCount)
+                    tid = $("#tweetID").html(); // this data is what we POST to like_comment.php, so it knows which tweet to increment likes on
+                    // console.log(tid)
+                    tid.toString();
+                    // console.log(tid)
+                    // updates both the database(see php code) and our HTML(see documentation for .load function) total like values
+                    $("#likeCount").load("like_comment.php", {
+                        tweet_id: tid,
+                        increment: true
+                    }); // set likeCount element to whatever our new like count is
+                } else {
+                    alert("Please sign in or make an account before liking tweets");
+                }
             });
 
             $("#ViewFollowButton").click(function(){
@@ -118,7 +130,7 @@
                 var xhttp2 = new XMLHttpRequest();
                 postHandle = $("#mainUserHandle").html();
                 postHandle.toString();
-                var loggedInUser = '<?php 
+                loggedInUser = '<?php 
                     if (isset($_SESSION["handle"])) {
                         echo $_SESSION["handle"];
                     } else {
@@ -179,7 +191,13 @@
     <nav> <!-- Navigation buttons -->
       <ul>
         <li class="navButtons">
-          <a href="settings.html">Settings</a>
+          <a 
+          <?php 
+            if (!$logged_in){
+                echo "hidden ";
+            }
+          ?>
+          href="settings.php">Settings</a>
         </li>
 
         <?php 
@@ -191,7 +209,7 @@
                     <a href='loginPage.php'>Login</a></li>";
             } else {
                 echo "<li class='navButtons'>
-                    <a href='userProfile.html'>".$_SESSION["handle"]."</a></li>";
+                    <a href='userProfile.php'>".$_SESSION["handle"]."</a></li>";
 
                 echo "<li class='navButtons'>
                     <a href='clear_session.php'>Logout</a></li>";
@@ -257,7 +275,7 @@
     <p class="beanzTitle" id="mainBTitle">The Beanz Title will appear here!</p>
     <p class="beanzText" id="mainBText">Please select a Beanz on the left. The Beanz Text will appear here!</p>
     <button hidden id="likeButton" hidden>Like this Beanz</button>
-    <a href="likesList.html">
+    <a href="likesList.php">
       <p hidden id="likeCount">0</p>
     </a>
   </div>

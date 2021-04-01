@@ -11,9 +11,7 @@
     } else {
         // echo "Username is not set.";
         $logged_in = False;
-        header("Location: loginPage.php");
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="main.css">
   <title>BeanzCroc</title>
+  <!-- add links to fonts here -->
 </head>
 <body>
   <header> <!-- Header bar at top -->
@@ -64,31 +63,19 @@
     </nav>
   </header>
 
-  <!-- Starts the body for the Post a Beanz page -->
-  <h4 id="beanzBigTitle">Post a Beanz</h4>
-  
-  <div> <!-- The form to take input from user for Beanz -->
-    <form action="recieve_tweet.php" method="POST" class="beanzForm">
-      <!-- Title for the Beanz -->
-      <label for="bTitle">Beanz Title:</label><br>
-      <input name="bTitle" placeholder="Enter Beanz Title" type="text" size="30" minlength="1" maxlength="50" required><br>
+  <!-- Starts body for Likes Page -->
+  <div>
+    <h5 id="likesBeanzTitle">Beanz Title Here</h3>
+    <h2 id="likesTitle" class="colTitle">Likes</h2>
+      
+    <div id="likesCol" class="nameListCol">
+        
+      <!-- One Likes Entry -->
+      <div class="nameListEntry">
+        <p id="nameListP">LikesName</p>
+      </div>
 
-      <!-- Actual text for the Beanz -->
-      <label for="bText">Beanz Text:</label><br>
-      <textarea name="bText" placeholder="Enter Beanz Test" rows="5" cols="26" minlength="1" maxlength="140" required></textarea><br>
-            
-      <!-- Submit and Clear buttons -->
-      <input name="bSubmit" type="submit" class="formButton" id="beanzSubmit" value=
-      <?php 
-          if (isset($_SESSION['handle'])) {
-              // echo "'Submit' name='submit'";
-              echo "'".$_SESSION['handle']."'";
-          } else {
-              echo "'Sign in to submit' disabled";
-          }          
-      ?> >
-      <input type="reset" class="formButton" id="beanzClear" value="Clear">
-    </form>
+    </div>
   </div>
     
 </body>
