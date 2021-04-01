@@ -256,9 +256,9 @@
     <p id="tweetID" hidden>tid_here</p>
     <p class="beanzTitle" id="mainBTitle">The Beanz Title will appear here!</p>
     <p class="beanzText" id="mainBText">Please select a Beanz on the left. The Beanz Text will appear here!</p>
-    <button id="likeButton">Like this Beanz</button>
+    <button hidden id="likeButton" hidden>Like this Beanz</button>
     <a href="likesList.html">
-      <p id="likeCount">0</p>
+      <p hidden id="likeCount">0</p>
     </a>
   </div>
 
@@ -266,11 +266,11 @@
   <div id="userInfo" class="col">
     <p class="colUser" id="mainUserName">Username Here</p>
     <p class="colHandle" id="mainUserHandle">Handle Here</p>
-    <button id="viewProfErr">View User Profile</button>
+    <button id="viewProfErr" hidden>View User Profile</button>
     <p id="errorMsg" class="errorMessage"><?php echo "".$viewProfErr."" ?></p>
-    <button id="ViewFollowButton">View Follows</button>
+    <button id="ViewFollowButton" hidden>View Follows</button>
     <p id="viewFollowsErr" class="errorMessage"><?php echo "".$viewFollowsErr."" ?></p>
-    <button id="FollowButton">Follow this User</button>
+    <button id="FollowButton" hidden>Follow this User</button>
     <p id="followErr" class="errorMessage"><?php echo "".$followErr."" ?></p>
   </div>
 
@@ -282,6 +282,14 @@
     function display_tweet(tweet_id, tweet_title, content, handle, username) {
         clearErrors();
         console.log(content);
+
+        // Remove disabled attributes from buttons now that we have a real tweet selected.
+        document.getElementById('likeButton').hidden = false;
+        document.getElementById('viewProfErr').hidden = false;
+        document.getElementById('ViewFollowButton').hidden = false;
+        document.getElementById('FollowButton').hidden = false;
+        document.getElementById('likeCount').hidden = false;
+
         document.getElementById('tweetID').innerHTML = tweet_id;
         var tid = $("#tweetID").html();
         // $("#mainBTitle").load("get_tweet.php", {
@@ -298,7 +306,6 @@
 
         document.getElementById('mainUserName').innerHTML = handle;
         document.getElementById('mainUserHandle').innerHTML = username;
-
 
         // $("#likeCount").load("get_tweet.php", {
         //     tweet_id: tid,
