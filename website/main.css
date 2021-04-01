@@ -15,6 +15,10 @@ a {
     text-decoration: none;
 }
 
+.hidden,
+[hidden] {
+    display: none !important;
+}
 
 /*********
 Header
