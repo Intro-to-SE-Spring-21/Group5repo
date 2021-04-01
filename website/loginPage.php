@@ -49,23 +49,23 @@
        $creds_validated = $database->validate_creds($handle, $pass);
        $error0 = "";
         if ($creds_validated){
-            echo "<br>Valid credentials entered.";
+            // echo "<br>Valid credentials entered.";
             $_SESSION["password"] = $pass;
             $_SESSION["handle"] = $handle;
             header("Location: home.php");
 
         } else {
-            echo "<br>Invalid credentials entered.";
+            $error0 = "<br>Invalid credentials entered.";
         }
         // header("Location: home.php");
     }
 
 
-        if (isset($_SESSION["handle"])){
-            echo $_SESSION["handle"];
-        } else {
-            echo "Username is not set.";
-        }
+        // if (isset($_SESSION["handle"])){
+        //     // echo $_SESSION["handle"];
+        // } else {
+        //     // echo "Username is not set.";
+        // }
 
 ?>
 
