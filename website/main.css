@@ -1,0 +1,453 @@
+/*********
+General
+*********/
+
+* {
+    color: #020202;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*********
+Header
+*********/
+header {
+    background-color: #800000;
+    height: 5vw;
+    padding: 0 0 2vw 0.5vw;
+}
+
+h1 {
+    color: #f3f3f3;
+    display: inline;
+    float: left;
+    font-size: 4.5vw;
+    text-align: left;
+}
+
+.navButtons a {
+    background-color: #f3f3f3;
+    border: 1px #333 solid;
+    color: #333;
+    display: inline;
+    float: right;
+    font-size: 1.25vw;
+    margin: 2vw 2.4vw 0 0;
+    padding: 0.5vw 1vw;
+    text-align: center;
+    width: 6vw;
+}
+
+.navButtons a:hover {
+    background-color: #ef626c;
+    color: #000;
+}
+
+/*********
+Home Page
+*********/
+
+button {
+    background-color: #800000;
+    border-radius: 1em;
+    color: #e3e3e3;
+    display: block;
+    font-size: 1vw;
+    margin: 2vw auto 1vw auto;
+    padding: 0.5vw;
+    width: 10vw;
+}
+
+.col {
+    height: 30vw;
+    margin: 2vw 0 2vw 2vw;
+}
+
+#leftCol {
+    clear: left;
+    display: inline;
+    float: left;
+    height: 32vw;
+    width: 25vw;
+}
+
+#postBeanz {
+    background-color: #800000;
+    border: 1px #333 solid;
+    color: #f3f3f3;
+    display: inline;
+    float: left;
+    font-size: 2vw;
+    height: 3.5vw;
+    padding-top: 1.345vw;
+    text-align: center;
+    width: 100%;
+}
+
+.feed {
+    background-color: #e3e3e3;
+    border: 1px #020202 solid;
+    display: inline;
+    float: left;
+    font-size: 2vw;
+    height: 23vw;
+    margin: 0;
+    overflow: auto;
+    padding: 0;
+    width: 24.9vw;
+}
+
+.feed p {
+    background-color: #f3f3f3;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    color: black;
+    display: block;
+    font-size: 1vw;
+    margin-bottom: 0.5vw;
+}
+
+.feed p:hover {
+    color: #800000;
+}
+
+#feedTitle {
+    height: 2vw;
+    margin: 6.5vw 0 0 0;
+    width: 25vw;
+}
+
+h3 {
+    background-color: #800000;
+    border: none;
+    color: #f3f3f3;
+    font-size: 1.5vw;
+    margin-top: 0;
+    padding: 0.25vw 0 0.25vw 0;
+}
+
+#fullBeanz {
+    background-color: #e3e3e3;
+    border: 1px #020202 solid;
+    display: inline;
+    float: left;
+    font-size: 2vw;
+    padding: 2vw 1vw 0vw 1vw;
+    width: 40vw;
+}
+
+.beanzTitle {
+    font-size: 2vw;
+    overflow-wrap: break-word;
+}
+
+.beanzText {
+    font-size: 1.5vw;
+    margin: 3vw 0.25vw 0 0.25vw;
+    overflow-wrap: break-word;
+}
+
+#likeCount {
+    font-size: 1.5vw;
+}
+
+#userInfo {
+    background-color: #e3e3e3;
+    border: 1px #020202 solid;
+    display: block;
+    float: left;
+    font-size: 2vw;
+    padding-top: 2vw;
+    width: 25vw;
+}
+
+.colUser {
+    font-size: 2vw;
+    overflow-wrap: break-word;
+}
+
+.colHandle {
+    font-size: 1.5vw;
+    margin: 1vw 0 3vw 0;
+    overflow-wrap: break-word;
+}
+
+#mainUserHandle {
+    margin-bottom: 5vw;
+}
+
+/*********
+Post A Beanz
+*********/
+
+#beanzBigTitle {
+    font-size: 3vw;
+    margin: 1.5vw 0 1.5vw 0;
+}
+
+.beanzForm {
+    background-color: #e3e3e3;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    margin: 0 auto;
+    padding: 2vw;
+    width: 50vw;
+}
+
+input, 
+textarea {
+    border-radius: 1em;
+    font-size: 2vw;
+    margin: 0.5vw 0 2vw 0;
+    width: 100%;
+}
+
+label {
+    font-size: 2vw;
+}
+
+.formButton {
+    background-color: #800000;
+    border-radius: 1em;
+    color: #e3e3e3;
+    font-size: 1.5vw;
+    margin-bottom: 0;
+    padding: 0.5vw;
+    width: 10vw;
+}
+
+
+/*********
+Register Account / Login Page
+*********/
+
+.errorMessage {
+    background-color: #f5999f;
+    color: black;
+    font-size: 1vw;
+    margin: 0vw auto 2vw auto;
+    width: 30vw;
+}
+
+#errorConfirm {
+    margin-bottom: 1vw;
+}
+
+#errorMsg {
+    margin-bottom: 1vw;
+}
+
+.logRegForm {
+    margin-bottom: 0.15vw;
+}
+
+#regForm input {
+    margin-bottom: 0.15vw;
+}
+
+#password-field {
+    margin-bottom: 0.15vw;
+}
+
+.regLogButton {
+    margin-top: 0;
+    width: 15vw;
+}
+
+.already {
+    display: inline-block;
+    font-size: 1.25vw;
+    margin-top: 1vw;
+}
+
+.altBtn {
+    background-color: #800000;
+    border: 1px #333 solid;
+    border-radius: 1em;
+    color: #e3e3e3;
+    display: inline-block;
+    font-size: 1.25vw;
+    margin-bottom: 1vw;
+    padding: 0.5vw;
+    width: 8vw;
+}
+
+/*********
+Follow Page
+*********/
+
+.pageTitle {
+    font-size: 2vw;
+    margin: 1vw auto 0 auto;
+}
+
+.colTitle {
+    background-color: #800000;
+    border: 1px #020202 solid;
+    color: #f3f3f3;
+    display: inline;
+    font-size: 2vw;
+    margin: 1vw 0 2vw 0;
+    padding: 1vw 0 1vw 0;
+    width: 40vw;
+}
+
+.colLeft {
+    float: left; 
+    margin-left: 7vw;
+}
+
+.colRight {
+    float: right;
+    margin-right: 7vw;
+}
+
+.nameListCol {
+    background-color: #e3e3e3;
+    border: 1px #020202 solid;
+    font-size: 2vw;
+    height: 30vw;
+    overflow: auto;
+    padding-top: 0.5vw;
+    width: 40vw;
+}
+
+.folCol {
+    display: inline;
+    height: 25vw;
+    margin-bottom: 2vw;
+}
+
+.folButton {
+    color: #f3f3f3;
+    display: inline-block;
+    font-size: 0.75vw;
+    height: 1.5vw;
+    margin: 0 0 0.35vw 0;
+    padding: 0;
+    width: 5vw;
+}
+
+.nameListEntry {
+    background-color: #f3f3f3;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    margin-bottom: 0.75vw;
+    font-size: 1.5vw;
+}
+
+.nameListP {
+    display: inline;
+}
+
+
+/*********
+Likes List
+*********/
+
+#likesBeanzTitle {
+    font-size: 1.5vw;
+    margin: 1vw auto 0 auto;
+}
+
+#likesTitle {
+    display: block;
+    margin: 2vw auto 1vw auto;
+}
+
+#likesCol {
+    margin: 0 auto 0 auto;
+}
+
+/*********
+Settings
+*********/
+
+.settCol {
+    display: inline;
+    font-size: 2vw;
+    height: 20vw;
+    margin-bottom: 2vw;
+    padding-top: 0.5vw;
+    width: 40vw;
+}
+
+.settForm {
+    background-color: #e3e3e3;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    margin: 0 auto;
+    padding: 2vw;
+    width: 35w;
+}
+
+/*********
+User Profile
+*********/
+
+#profileInfo {
+    background-color: #e3e3e3;
+    border: 1px #020202 solid;
+    display: block;
+    float: left;
+    font-size: 2vw;
+    padding-top: 2vw;
+    width: 25vw;
+
+}
+
+#userBio {
+    font-size: 1.25vw;
+    margin:0 auto 5vw auto;
+    overflow-wrap: break-word;
+    width: 20vw;
+}
+
+#profileBeanz {
+    background-color: #e3e3e3;
+    border: 1px #020202 solid;
+    display: inline;
+    float: left;
+    font-size: 2vw;
+    padding: 2vw 1vw 0vw 1vw;
+    width: 40vw;
+}
+
+#rightCol {
+    display: inline;
+    float: left;
+    height: 30vw;
+    width: 25vw;
+
+}
+
+#profileFeedTitle {
+    height: 2vw;
+    margin: 0;
+    width: 25vw;
+}
+
+#profileFeed {
+    height: 29.5vw;
+}
+
+
+/*
+Colors
+Maroon: #800000
+Rich Black: #080705
+Gray: #f3f3f3
+Gray: #e3e3e3
+Gray: #ccc
+Slate Gray: #70798C
+Lavender Blush: #F6E8EA
+Fiery Rose: #EF626C
+*/
