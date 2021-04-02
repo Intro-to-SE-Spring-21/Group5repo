@@ -31,7 +31,7 @@
     <nav> <!-- Navigation buttons -->
       <ul>
         <li class="navButtons">
-          <a href="settings.html">Settings</a>
+          <a href="settings.php">Settings</a>
         </li>
                 
         <?php 
@@ -43,7 +43,7 @@
             <a href='loginPage.php'>Login</a></li>";
           } else {
             echo "<li class='navButtons'>
-            <a href='userProfile.html'>".$_SESSION["handle"]."</a></li>";
+            <a href='userProfile.php'>".$_SESSION["handle"]."</a></li>";
 
             echo "<li class='navButtons'>
             <a href='clear_session.php'>Logout</a></li>";

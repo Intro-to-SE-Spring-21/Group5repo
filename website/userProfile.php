@@ -11,9 +11,7 @@
     } else {
         // echo "Username is not set.";
         $logged_in = False;
-        header("Location: loginPage.php");
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +20,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="main.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
   <title>BeanzCroc</title>
 </head>
 <body>
@@ -29,7 +28,7 @@
     <a href="home.php"> <!-- "Logo" and link back to the home page -->
       <h1>BeanzCroc</h1>
     </a>
-        <nav> <!-- Navigation buttons -->
+    <nav> <!-- Navigation buttons -->
       <ul>
         <li class="navButtons">
           <a 
@@ -63,33 +62,42 @@
       </ul> 
     </nav>
   </header>
+  <!-- Starts the body for the home page -->
 
-  <!-- Starts the body for the Post a Beanz page -->
-  <h4 id="beanzBigTitle">Post a Beanz</h4>
-  
-  <div> <!-- The form to take input from user for Beanz -->
-    <form action="recieve_tweet.php" method="POST" class="beanzForm">
-      <!-- Title for the Beanz -->
-      <label for="bTitle">Beanz Title:</label><br>
-      <input name="bTitle" placeholder="Enter Beanz Title" type="text" size="30" minlength="1" maxlength="50" required><br>
 
-      <!-- Actual text for the Beanz -->
-      <label for="bText">Beanz Text:</label><br>
-      <textarea name="bText" placeholder="Enter Beanz Test" rows="5" cols="26" minlength="1" maxlength="140" required></textarea><br>
-            
-      <!-- Submit and Clear buttons -->
-      <input name="bSubmit" type="submit" class="formButton" id="beanzSubmit" value=
-      <?php 
-          if (isset($_SESSION['handle'])) {
-              // echo "'Submit' name='submit'";
-              echo "'".$_SESSION['handle']."'";
-          } else {
-              echo "'Sign in to submit' disabled";
-          }          
-      ?> >
-      <input type="reset" class="formButton" id="beanzClear" value="Clear">
-    </form>
-  </div>
+  <!-- User info -->
+  <div id="profileInfo" class="col">
+    <p class="colUser" id="profileUserName">Username Here</p>
+    <p class="colHandle" id="profileHandle">Handle Here</p>
+
+    <p id="userBio">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
     
+    <button id="ViewFollowButton">View Follows</button>
+    <button id="FollowButton">Follow this User</button>
+  </div>
+  
+  <!-- Beanz full message -->
+  <div id="profileBeanz" class="col">
+    <p id="tweetID" hidden>tid_here</p>
+    <p class="beanzTitle" id="profileBTitle">The Beanz Title will appear here!</p>
+    <p class="beanzText" id="profileBText">Please select a Beanz on the right. The Beanz Text will appear here!</p>
+    <button id="likeButton">Like this Beanz</button>
+    <a href="likesList.php">
+      <p id="likeCount">0</p>
+    </a>
+  </div>
+
+  <!-- Post a Beanz / Feed -->
+  <div id="rightCol" class="col">
+      <div>
+        <h3 id="profileFeedTitle">Feed</h3>
+      </div>
+
+      <div class="feed" id="profileFeed">
+        <p id="profileTweet">Insert Tweet Info Here</p>
+            
+      </div>
+  </div>
+
 </body>
 </html>
