@@ -30,9 +30,41 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <script>
-    
+    function isFollowing(handle) {
+      var xhttp;
+      if (handle == "") {
+        // document.getElementById("txtHint").innerHTML = "";
+        console.log("Cannot check own followers without logging in.");
+        return;
+      }
+      xhttp = new XMLHttpRequest();
+      output = false;
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        // document.getElementById("txtHint").innerHTML = this.responseText;
+            // console.log(this.responseText);
+            console.log("Already following user.");
+            // return(this.responseText);
+            output = this.responseText;
+            if(output == "true"){
+                document.getElementById("followErr").innerHTML = "You are already following this user.";
+                return true;
+            } else {
+                console.log("Not following this user.");
+            }
+            // document.getElementById("FollowButton").innerHTML = "Follow this User";
+
+        }
+        // document.getElementById("FollowButton").innerHTML = "Follow this User";
+
+      };
+      xhttp.open("GET", "is_following.php?handle="+handle, true);
+      xhttp.send();
+    }
+
     function clearErrors(){
         document.getElementById("followErr").innerHTML = "";
+        // document.getElementById("FollowButton").innerHTML = "Follow this User";
 
     }
     // Tell this code to only run once the page is fully loaded.
@@ -74,7 +106,7 @@
                 clearErrors();
                 postHandle = $("#mainUserHandle").html();
                 postHandle.toString();
-                console.log(postHandle);
+                // console.log(postHandle);
                 // Simulate a mouse click:
                 window.location.href = "follow.php?handle="+postHandle;
             });
@@ -82,7 +114,8 @@
 
             $("#FollowButton").click(function(){
                 clearErrors();
-                var xhttp = new XMLHttpRequest();
+                
+                var xhttp2 = new XMLHttpRequest();
                 postHandle = $("#mainUserHandle").html();
                 postHandle.toString();
                 var loggedInUser = '<?php 
@@ -99,19 +132,29 @@
                 } else if (postHandle == "Handle Here") {
                     alert("Can't follow a non-existent user. Try clicking a post before attempting to follow a user.");
                 } else {
-                    
+                    if (isFollowing(postHandle) == true) {
+                        console.log("Hello there!"); // can't get this to run no matter what I try...
+                    }
                     // console.log(loggedInUser, postHandle);
                     // We will do this to make it harder for a user to follow themselves... Still not impossible though.
                     if (loggedInUser != postHandle) {
-                        xhttp.open("GET", "follow_user.php", false);
-                        xhttp.send("handle_follower="+loggedInUser+"&"+"handle_following="+postHandle); // NOTE: ANYONE CAN MAKE ANY USER FOLLOW ANY OTHER USER. WE SHOULD REQUIRE A PASSWORD OR SOMETHING.
-                        var results = xhttp.responseText;
-                        console.log(results);
+                        xhttp2.open("GET", "follow_user.php?following="+postHandle, false);
+                        xhttp2.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                                console.log(this.responseText); // results of SQL insert
+                            }
+                        };
 
-                        $("#FollowButton").load("follow_user.php", {
-                            follower: loggedInUser,
-                            following: postHandle
-                        });
+                    // xhttp.open("GET", "is_following.php?following="+postHanle, true);
+                        xhttp2.send("handle_follower="+loggedInUser+"&"+"handle_following="+postHandle); // NOTE: ANYONE CAN MAKE ANY USER FOLLOW ANY OTHER USER. WE SHOULD REQUIRE A PASSWORD OR SOMETHING.
+                        var results = xhttp2.responseText;
+
+                        // $("#FollowButton").load("follow_user.php", {
+                        //     follower: loggedInUser,
+                        //     following: postHandle
+                        // });
+                        // console.log(results);
+
                     } else {
                         document.getElementById("followErr").innerHTML = "You cannot follow yourself.";
 
@@ -237,6 +280,7 @@
 
 <script>
     function display_tweet(tweet_id, tweet_title, content, handle, username) {
+        clearErrors();
         document.getElementById('tweetID').innerHTML = tweet_id;
         var tid = $("#tweetID").html();
         // $("#mainBTitle").load("get_tweet.php", {
