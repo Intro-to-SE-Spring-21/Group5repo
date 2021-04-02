@@ -64,7 +64,7 @@
 			        	$credentials_valid = True;
 			        }
 			    }
-		    } else { echo "No user found: ".$handle; }
+		    } //else { echo "No user found: ".$handle; }
 		    return($credentials_valid);
 		}
 
@@ -101,7 +101,19 @@
 		    return($result);
 		}
 
+		public function get_tweets($tweet_id){
+			$conn = new mysqli($this->hn, $this->un, $this->pw, $this->db, $this->port);
 
+			if ($conn->connect_error){
+				echo " ded.";
+				die($conn->connect_error);
+			}
+
+			$result = $conn->query("SELECT * from likes_a WHERE tid='".$tweet_id."'");
+			// echo $result;
+		    
+		    return($result);
+		}
 
 		public function follow_user($handle_follower, $handle_following){
 			$conn = new mysqli($this->hn, $this->un, $this->pw, $this->db, $this->port);
@@ -119,6 +131,39 @@
 			} else {
 			    echo "ERROR: Could not execute $insert_query <br>" . mysqli_error($conn);
 			}
+
+		}
+
+		public function like_tweet($tweet_id, $handle, $increment){
+			$conn = new mysqli($this->hn, $this->un, $this->pw, $this->db, $this->port);
+			// echo $increment;
+			if ($conn->connect_error){
+				echo " ded.";
+				die($conn->connect_error);
+			}
+			// echo "Like tweet is running.";
+			if ($increment == 'true'){
+				$insert_query = "INSERT INTO likes_a VALUES('".$tweet_id."', '".$handle."');";
+			    
+			    if(mysqli_query($conn, $insert_query)) {
+			    	echo "Liked tweet<br>";
+				} else {
+				    // echo "ERROR: Could not execute $insert_query <br>" . mysqli_error($conn);
+				}
+			}
+
+
+			// $update = "UPDATE `tweets` SET `total_likes` = '" . ($current_likes+1) . "' WHERE `tweets`.`tid` = " . $tid . ";";
+			// if(mysqli_query($conn, $update)){
+	  //   		echo ("Hiya!");
+			// }
+
+			// $result = mysqli_query($conn, "SELECT COUNT('tid') from likes_a WHERE tid='".$tweet_id."'");
+			// echo "likes: " . $result;
+		    $result=mysqli_query($conn, "SELECT COUNT(*) FROM likes_a WHERE tid='".$tweet_id."'");
+			$row=mysqli_fetch_assoc($result);
+			echo $row["COUNT(*)"];
+		    // return($result);
 
 		}
 

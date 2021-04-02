@@ -49,23 +49,23 @@
        $creds_validated = $database->validate_creds($handle, $pass);
        $error0 = "";
         if ($creds_validated){
-            echo "<br>Valid credentials entered.";
+            // echo "<br>Valid credentials entered.";
             $_SESSION["password"] = $pass;
             $_SESSION["handle"] = $handle;
             header("Location: home.php");
 
         } else {
-            echo "<br>Invalid credentials entered.";
+            $error0 = "<br>Invalid credentials entered.";
         }
         // header("Location: home.php");
     }
 
 
-        if (isset($_SESSION["handle"])){
-            echo $_SESSION["handle"];
-        } else {
-            echo "Username is not set.";
-        }
+        // if (isset($_SESSION["handle"])){
+        //     // echo $_SESSION["handle"];
+        // } else {
+        //     // echo "Username is not set.";
+        // }
 
 ?>
 
@@ -75,33 +75,39 @@
   <a href="home.php"> <!-- "Logo" and link back to the home page -->
     <h1>BeanzCroc</h1>
   </a>
-  <nav> <!-- Navigation buttons -->
-    <ul>
-      <li class="navButtons">
-        <a href="settings.html">Settings</a>
-      </li>
+        <nav> <!-- Navigation buttons -->
+      <ul>
+        <li class="navButtons">
+          <a 
+          <?php 
+            if (!$logged_in){
+                echo "hidden ";
+            }
+          ?>
+          href="settings.php">Settings</a>
+        </li>
 
-      <?php 
-          if ($logged_in == False){
-              echo "<li class='navButtons'>
-                  <a href='registerAccount.php'>Register</a></li>";
+        <?php 
+            if ($logged_in == False){
+                echo "<li class='navButtons'>
+                    <a href='registerAccount.php'>Register</a></li>";
 
-              echo "<li class='navButtons'>
-                  <a href='loginPage.php'>Login</a></li>";
-          } else {
-              echo "<li class='navButtons'>
-                  <a href='userProfile.html'>".$_SESSION["handle"]."</a></li>";
+                echo "<li class='navButtons'>
+                    <a href='loginPage.php'>Login</a></li>";
+            } else {
+                echo "<li class='navButtons'>
+                    <a href='userProfile.php'>".$_SESSION["handle"]."</a></li>";
 
-              echo "<li class='navButtons'>
-                  <a href='clear_session.php'>Logout</a></li>";
-          }           
-      ?>
+                echo "<li class='navButtons'>
+                    <a href='clear_session.php'>Logout</a></li>";
+            }             
+        ?>
 
-      <li class="navButtons">
-        <a href="home.php">Home</a>
-      </li>
-    </ul> 
-  </nav>
+        <li class="navButtons">
+          <a href="home.php">Home</a>
+        </li>
+      </ul> 
+    </nav>
   </header>
 
   <!-- Starts the body for the Login page -->
