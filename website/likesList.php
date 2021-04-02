@@ -12,6 +12,14 @@
         // echo "Username is not set.";
         $logged_in = False;
     }
+
+    // require_once "login.php";
+  require_once "database.php";
+  $title = $_GET['title'];
+  $tid = $_GET['tweet_id'];
+  $database = new Database();
+
+  
 ?>
 
 <!DOCTYPE html>
@@ -65,18 +73,33 @@
 
   <!-- Starts body for Likes Page -->
   <div>
-    <h5 id="likesBeanzTitle">Beanz Title Here</h3>
+    <h5 id="likesBeanzTitle"><?php echo $title; ?></h3>
     <h2 id="likesTitle" class="colTitle">Likes</h2>
       
     <div id="likesCol" class="nameListCol">
         
       <!-- One Likes Entry -->
-      <div class="nameListEntry">
-        <p id="nameListP">LikesName</p>
+        <?php
+          $result = $database->get_tweets($tid);
+          if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+              echo "<div class='nameListEntry'>";
+              echo "<p id=".$row['handle'].">".$row["handle"]."</p>";
+              echo "</div>";
+            }
+          } 
+          else { 
+            echo "Not following anyone"; 
+          }
+
+
+          // echo '<p id="nameListP">LikesName</p>';
+        ?>
+        
       </div>
 
     </div>
-  </div>
+</div>
     
 </body>
 </html>

@@ -15,6 +15,7 @@
     $viewProfErr = "";
     $viewFollowsErr = "";
     $followErr = "";
+    $tid = "";
 ?>
 
 <!DOCTYPE html>
@@ -275,7 +276,7 @@
     <p class="beanzTitle" id="mainBTitle">The Beanz Title will appear here!</p>
     <p class="beanzText" id="mainBText">Please select a Beanz on the left. The Beanz Text will appear here!</p>
     <button hidden id="likeButton" hidden>Like this Beanz</button>
-    <a href="likesList.php">
+    <a id="likesList" href="likesList.php?tweet_id=''">
       <p hidden id="likeCount">0</p>
     </a>
   </div>
@@ -310,6 +311,7 @@
 
         document.getElementById('tweetID').innerHTML = tweet_id;
         var tid = $("#tweetID").html();
+        document.getElementById('likesList').href = "likesList.php?tweet_id="+tid+"&title="+tweet_title;
         // $("#mainBTitle").load("get_tweet.php", {
         //     tweet_id: tid,
         //     column: "tweet_title"

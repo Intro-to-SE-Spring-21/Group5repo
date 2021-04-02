@@ -101,7 +101,19 @@
 		    return($result);
 		}
 
+		public function get_tweets($tweet_id){
+			$conn = new mysqli($this->hn, $this->un, $this->pw, $this->db, $this->port);
 
+			if ($conn->connect_error){
+				echo " ded.";
+				die($conn->connect_error);
+			}
+
+			$result = $conn->query("SELECT * from likes_a WHERE tid='".$tweet_id."'");
+			// echo $result;
+		    
+		    return($result);
+		}
 
 		public function follow_user($handle_follower, $handle_following){
 			$conn = new mysqli($this->hn, $this->un, $this->pw, $this->db, $this->port);
