@@ -93,23 +93,29 @@
     <nav> <!-- Navigation buttons -->
       <ul>
         <li class="navButtons">
-          <a href="settings.html">Settings</a>
+          <a 
+          <?php 
+            if (!$logged_in){
+                echo "hidden ";
+            }
+          ?>
+          href="settings.php">Settings</a>
         </li>
 
         <?php 
             if ($logged_in == False){
                 echo "<li class='navButtons'>
-                <a href='registerAccount.php'>Register</a></li>";
+                    <a href='registerAccount.php'>Register</a></li>";
 
                 echo "<li class='navButtons'>
-                <a href='loginPage.php'>Login</a></li>";
+                    <a href='loginPage.php'>Login</a></li>";
             } else {
                 echo "<li class='navButtons'>
-                <a href='userProfile.html'>".$_SESSION["handle"]."</a></li>";
+                    <a href='userProfile.php'>".$_SESSION["handle"]."</a></li>";
 
                 echo "<li class='navButtons'>
-                <a href='clear_session.php'>Logout</a></li>";
-            }            
+                    <a href='clear_session.php'>Logout</a></li>";
+            }             
         ?>
 
         <li class="navButtons">
