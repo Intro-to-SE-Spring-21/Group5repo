@@ -14,7 +14,10 @@
 
 
     $title = "'".$_POST['bTitle']."'";
-    $body = "'".$_POST['bText']."'";
+    $body = $_POST['bText'];
+    $body = str_replace("'","\'",$body);
+    $body = "'".$body."'";
+    echo $body;
     $handle = "'".$_POST['bSubmit']."'";
     $insert_query = "INSERT INTO tweets (tid, handle, tweet_title, content, date_posted) VALUES (0, ".$handle.", ".$title.", ".$body.", current_timestamp());";
 
@@ -22,9 +25,9 @@
 
     //mysqli_query($conn, $query);
     if(mysqli_query($conn, $insert_query)){
-    	echo "Records inserted successfully.<br>";
+    	echo " -Records inserted successfully.<br>";
 	} else {
-	    echo "ERROR: Could not able to execute $insert_query <br>" . mysqli_error($conn);
+	    echo " -ERROR: Could not able to execute $insert_query <br>" . mysqli_error($conn);
 	}
 
     $result = $conn->query("SELECT * from tweets");
@@ -32,7 +35,7 @@
 	    while($row = $result->fetch_assoc()){
 	        echo $row["tweet_title"] . " - " . $row["content"] . " - " . $row["tid"] . " - " . $row["date_posted"] . "<br>";
 	    }
-    } else { echo "No tweets found in table."; }
+    } else { echo " -No tweets found in table."; }
     // echo $_POST['bTitle'];
     // echo "<br>";
     // echo $_POST['bText'];

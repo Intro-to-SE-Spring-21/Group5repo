@@ -238,7 +238,7 @@
                 while($row = $result->fetch_assoc()){
                     echo "<p id='".$row["tid"]
                     ."' onclick=\"display_tweet("
-                    .$row["tid"]. ", '" .$row["tweet_title"]. "','" .$row["content"]. "','" . $row["handle"]. "','" .$row["handle"] ."')\">"     // DATA FROM HERE  "','".$row["total_likes"].
+                    .$row["tid"]. ", '" .$row["tweet_title"]. "','" .str_replace("'", "\'", $row["content"]). "','" . $row["handle"]. "','" .$row["handle"] ."')\">"     // DATA FROM HERE  "','".$row["total_likes"].
                     . $row["tweet_title"] 
                     . "</p>";
                     echo "<script></script>";
@@ -281,6 +281,7 @@
 <script>
     function display_tweet(tweet_id, tweet_title, content, handle, username) {
         clearErrors();
+        console.log(content);
         document.getElementById('tweetID').innerHTML = tweet_id;
         var tid = $("#tweetID").html();
         // $("#mainBTitle").load("get_tweet.php", {
