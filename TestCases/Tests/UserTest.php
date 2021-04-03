@@ -16,7 +16,7 @@ class UserTest extends TestCase
 		$user->password = "Password";
 		$user->bio = "Hello World";
 
-		this->assertEquals('Handle: Thomas Username: Williamson Password: Password BIO: Hello World')
+		$this->assertEquals('Handle: Thomas Username: Williamson Password: Password BIO: Hello World')
 	}
 
 }
