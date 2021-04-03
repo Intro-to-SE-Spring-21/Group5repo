@@ -3,23 +3,23 @@
 class User
 {
 
-	@var string
+	//@var string
 
   public $handle;
 
-	@var string
+	//@var string
 
   public $username;
 
-	@var string
+	//@var string
 
   public $password;
 	
-	@var string
+	//@var string
 
   public $bio;
 
-	@return string
+	//@return string
 
 	public function getProfile()
 	{
