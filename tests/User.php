@@ -1,21 +1,29 @@
-<?php
+?php
 
-use PHPUnit\Framework\TestCase;
-
-class UserTest extends TestCase
+class User
 {
-	public function testReturnsProfile()
-	{
-		require 'User.php';
+
+	@var string
+
+  public $handle;
+
+	@var string
+
+  public $username;
+
+	@var string
+
+  public $password;
 	
-		$user = new User;
+	@var string
 
-		$user->handle = "Thomas";
-		$user->username = "Williamson";
-		$user->password = "Password";
-		$user->bio = "Hello World";
+  public $bio;
 
-		$this->assertEquals('Handle: Thomas Username: Williamson Password: Password BIO: Hello World')
+	@return string
+
+	public function getProfile()
+	{
+		return "Handle: $this->handle Username: $this->username Password: $this->password BIO: $this->bio ";
 	}
 }
 ?>
