@@ -2,7 +2,7 @@
 
 namespace tests/Unit;
 
-
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 use app\User;
 use Illuminate\Foundation\Testing\WithFaker;
