@@ -12,7 +12,12 @@
         <testsuite name="Beanz">
             <directory>./website/</directory>
         </testsuite>
+             
+        <testsuite name= "Unit">
+            <directory>./website/</directory>
+        </testsuite>
     </testsuites>
+      
 
     <filter>
         <whitelist>
