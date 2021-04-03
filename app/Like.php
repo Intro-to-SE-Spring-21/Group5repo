@@ -1,28 +1,17 @@
 <?php
-
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Vote extends Model
+class Tweet
 {
-    protected $fillable = [
-        'status',
-        'is_liked',
-        'user_id',
-    ];
 
-    protected $casts = [
-        'is_liked' => 'boolean',
-    ];
+  public $tid;
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+	//@var int
 
-    public function likeable()
-    {
-        return $this->morphTo();
-    }
+  public $handle;
+	//@var string
+
+	public function getLikeTweet()
+	{
+		return " Tid: " . $this->tid . " Liked by " . $this->handle;
+	}
 }
+?>
