@@ -27,7 +27,7 @@ class User
 
 	public function getProfile()
 	{
-		return "Handle: ". $this->handle . "Username: " . $this->username "Password: " . $this->password . "BIO: " . $this->bio ;
+		return "Handle: ". $this->handle . " Username: " . $this->username " Password: " . $this->password . " BIO: " . $this->bio ;
 	}
 }
 ?>
