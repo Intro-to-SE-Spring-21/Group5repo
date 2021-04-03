@@ -10,6 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase
 {
+	use DatabaseMigrations;
 	public function testReturnsProfile()
 	{
 		require 'User.php';
