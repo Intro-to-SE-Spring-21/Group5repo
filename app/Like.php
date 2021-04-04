@@ -1,22 +1,27 @@
 <?php
 
 namespace App;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-class Tweet
+use Illuminate\Database\Eloquent\Model;
+
+class Like extends Model
 {
+    protected $fillable = [
+        'is_like',
+        'handle',
+    ];
 
-  public $tid;
+    protected $casts = [
+        'is_like' => 'boolean',
+    ];
 
-	//@var int
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
-  public $handle;
-	//@var string
-
-	public function getLikeTweet()
-	{
-		return " Tid: " . $this->tid . " Liked by " . $this->handle;
-	}
+    public function likeable()
+    {
+        return $this->morphTo();
+    }
 }
-?>
