@@ -14,7 +14,7 @@ class UserTest extends TestCase
 		$like->handle = "Lundy";
 
 
-		this->assertEquals($user->LikeInfot() 'Lundy liked tweetid 1');
+		this->assertEquals($user->LikeInfo() 'Lundy liked tweetid 1');
 	}
 }
 ?>
