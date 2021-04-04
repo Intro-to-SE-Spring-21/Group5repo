@@ -1,5 +1,6 @@
 <?php
 
+namespace tests\Unit;
 use PHPUnit\Framework\TestCase;
 use Tests\TestCase;
 use app\Tweet;
