@@ -8,14 +8,13 @@ class UserTest extends TestCase
 	{
 		require 'Tweet.php';
 	
-		$tweet = new Tweet;
+		$like = new like;
 
-		$tweet->tid = 1;
-		$tweet->handle = "Lundy";
+		$like->tid = 1;
+		$like->handle = "Lundy";
 
 
-		this->assertEquals($user->getLikeTweet()'Handle: Thomas Username: Williamson Password: Password BIO: Hello World');
+		this->assertEquals($user->LikeInfot() 'Lundy liked tweetid 1');
 	}
-
 }
 ?>
