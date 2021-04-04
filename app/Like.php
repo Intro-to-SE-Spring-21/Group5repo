@@ -15,7 +15,7 @@ class Like
 
   public $handle;
 
-	public function getProfile()
+	public function LikeInfo()
 	{
 		return $this->handle . " liked tweetid " . $this->tid;
 }
