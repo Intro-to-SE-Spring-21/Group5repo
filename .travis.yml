@@ -1,10 +1,7 @@
 language: php
-sudo: required
-dist: trusty
-
 php:
   - 7.3
   - 7.4
 
 script:
-  - vendor/bin/phpunit
+$ ./vendor/bin/phpunit
