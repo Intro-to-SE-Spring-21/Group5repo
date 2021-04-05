@@ -9,14 +9,6 @@ php:
   - 7.3
   - 7.4
 
-before_script:
-  - touch database/database.sqlite
-  - composer self-update
-  - composer install --no-interaction
-  - php artisan migrate --seed
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-  - php artisan serve &
-
 script:
   - vendor/bin/phpunit
   - php artisan dusk
