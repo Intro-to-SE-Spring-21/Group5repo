@@ -1,6 +1,23 @@
 language: php
+sudo: required
+dist: trusty
+
+addons:
+   chrome: stable
+
 php:
-- 7.4
-- 7.3
-script:  
-- vendor/bin/phpunit
+  - 7.3
+  - 7.4
+
+before_script:
+  - cp .env.travis .env
+  - touch database/database.sqlite
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan migrate --seed
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - php artisan serve &
+
+script:
+  - vendor/bin/phpunit
+  - php artisan dusk
