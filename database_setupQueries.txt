@@ -2,7 +2,6 @@ CREATE TABLE users (
 handle		VARCHAR(20)	NOT NULL UNIQUE,
 username	VARCHAR(20)	NOT NULL,
 password	VARCHAR(255) NOT NULL,
-bio		TEXT(140)	DEFAULT 'This user has not set up a bio.',
 PRIMARY KEY (handle)
 );
 
