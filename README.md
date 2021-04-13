@@ -24,7 +24,7 @@ A Twitter-esque website that is created for our valued customer.
 # Setup and Installation Instructions
 
 
-First run git clone https://github.com/Intro-to-SE-Spring-21/Group5repo.git
+First run `git clone https://github.com/Intro-to-SE-Spring-21/Group5repo.git`
 
 
 On Windows:
