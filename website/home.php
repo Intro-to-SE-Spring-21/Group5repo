@@ -15,6 +15,7 @@
     $viewProfErr = "";
     $viewFollowsErr = "";
     $followErr = "";
+    $tid = "";
 ?>
 
 <!DOCTYPE html>
@@ -30,9 +31,41 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <script>
-    
+    function isFollowing(handle) {
+      var xhttp;
+      if (handle == "") {
+        // document.getElementById("txtHint").innerHTML = "";
+        console.log("Cannot check own followers without logging in.");
+        return;
+      }
+      xhttp = new XMLHttpRequest();
+      output = false;
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        // document.getElementById("txtHint").innerHTML = this.responseText;
+            // console.log(this.responseText);
+            console.log("Already following user.");
+            // return(this.responseText);
+            output = this.responseText;
+            if(output == "true"){
+                document.getElementById("followErr").innerHTML = "You are already following this user.";
+                return true;
+            } else {
+                console.log("Not following this user.");
+            }
+            // document.getElementById("FollowButton").innerHTML = "Follow this User";
+
+        }
+        // document.getElementById("FollowButton").innerHTML = "Follow this User";
+
+      };
+      xhttp.open("GET", "is_following.php?handle="+handle, true);
+      xhttp.send();
+    }
+
     function clearErrors(){
         document.getElementById("followErr").innerHTML = "";
+        // document.getElementById("FollowButton").innerHTML = "Follow this User";
 
     }
     // Tell this code to only run once the page is fully loaded.
@@ -40,6 +73,14 @@
             var likesCount = 8;
             var tid = 0;
             var postHandle = "";
+            var loggedInUser = '<?php 
+                    if (isset($_SESSION["handle"])) {
+                        echo $_SESSION["handle"];
+                    } else {
+                        echo "";
+                    }
+
+                ?>';
 
             // Find out what our current amount of likes is for the current post.
             // $.ajax({
@@ -57,24 +98,28 @@
             // This triggers when you click the like button
             $("#likeButton").click(function(){
                 clearErrors();
-                likesCount = likesCount + 1;
-                // console.log(likesCount)
-                tid = $("#tweetID").html(); // this data is what we POST to like_comment.php, so it knows which tweet to increment likes on
-                // console.log(tid)
-                tid.toString();
-                // console.log(tid)
-                // updates both the database(see php code) and our HTML(see documentation for .load function) total like values
-                $("#likeCount").load("like_comment.php", {
-                    tweet_id: tid,
-                    increment: true
-                }); // set likeCount element to whatever our new like count is
+                if (loggedInUser != ""){
+                    likesCount = likesCount + 1;
+                    // console.log(likesCount)
+                    tid = $("#tweetID").html(); // this data is what we POST to like_comment.php, so it knows which tweet to increment likes on
+                    // console.log(tid)
+                    tid.toString();
+                    // console.log(tid)
+                    // updates both the database(see php code) and our HTML(see documentation for .load function) total like values
+                    $("#likeCount").load("like_comment.php", {
+                        tweet_id: tid,
+                        increment: true
+                    }); // set likeCount element to whatever our new like count is
+                } else {
+                    alert("Please sign in or make an account before liking tweets");
+                }
             });
 
             $("#ViewFollowButton").click(function(){
                 clearErrors();
                 postHandle = $("#mainUserHandle").html();
                 postHandle.toString();
-                console.log(postHandle);
+                // console.log(postHandle);
                 // Simulate a mouse click:
                 window.location.href = "follow.php?handle="+postHandle;
             });
@@ -82,10 +127,11 @@
 
             $("#FollowButton").click(function(){
                 clearErrors();
-                var xhttp = new XMLHttpRequest();
+                
+                var xhttp2 = new XMLHttpRequest();
                 postHandle = $("#mainUserHandle").html();
                 postHandle.toString();
-                var loggedInUser = '<?php 
+                loggedInUser = '<?php 
                     if (isset($_SESSION["handle"])) {
                         echo $_SESSION["handle"];
                     } else {
@@ -99,19 +145,29 @@
                 } else if (postHandle == "Handle Here") {
                     alert("Can't follow a non-existent user. Try clicking a post before attempting to follow a user.");
                 } else {
-                    
+                    if (isFollowing(postHandle) == true) {
+                        console.log("Hello there!"); // can't get this to run no matter what I try...
+                    }
                     // console.log(loggedInUser, postHandle);
                     // We will do this to make it harder for a user to follow themselves... Still not impossible though.
                     if (loggedInUser != postHandle) {
-                        xhttp.open("GET", "follow_user.php", false);
-                        xhttp.send("handle_follower="+loggedInUser+"&"+"handle_following="+postHandle); // NOTE: ANYONE CAN MAKE ANY USER FOLLOW ANY OTHER USER. WE SHOULD REQUIRE A PASSWORD OR SOMETHING.
-                        var results = xhttp.responseText;
-                        console.log(results);
+                        xhttp2.open("GET", "follow_user.php?following="+postHandle, false);
+                        xhttp2.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                                console.log(this.responseText); // results of SQL insert
+                            }
+                        };
 
-                        $("#FollowButton").load("follow_user.php", {
-                            follower: loggedInUser,
-                            following: postHandle
-                        });
+                    // xhttp.open("GET", "is_following.php?following="+postHanle, true);
+                        xhttp2.send("handle_follower="+loggedInUser+"&"+"handle_following="+postHandle); // NOTE: ANYONE CAN MAKE ANY USER FOLLOW ANY OTHER USER. WE SHOULD REQUIRE A PASSWORD OR SOMETHING.
+                        var results = xhttp2.responseText;
+
+                        // $("#FollowButton").load("follow_user.php", {
+                        //     follower: loggedInUser,
+                        //     following: postHandle
+                        // });
+                        // console.log(results);
+
                     } else {
                         document.getElementById("followErr").innerHTML = "You cannot follow yourself.";
 
@@ -136,7 +192,13 @@
     <nav> <!-- Navigation buttons -->
       <ul>
         <li class="navButtons">
-          <a href="settings.html">Settings</a>
+          <a 
+          <?php 
+            if (!$logged_in){
+                echo "hidden ";
+            }
+          ?>
+          href="settings.php">Settings</a>
         </li>
 
         <?php 
@@ -148,7 +210,7 @@
                     <a href='loginPage.php'>Login</a></li>";
             } else {
                 echo "<li class='navButtons'>
-                    <a href='userProfile.html'>".$_SESSION["handle"]."</a></li>";
+                    <a href='userProfile.php'>".$_SESSION["handle"]."</a></li>";
 
                 echo "<li class='navButtons'>
                     <a href='clear_session.php'>Logout</a></li>";
@@ -195,7 +257,7 @@
                 while($row = $result->fetch_assoc()){
                     echo "<p id='".$row["tid"]
                     ."' onclick=\"display_tweet("
-                    .$row["tid"]. ", '" .$row["tweet_title"]. "','" .$row["content"]. "','" . $row["handle"]. "','" .$row["handle"] ."')\">"     // DATA FROM HERE  "','".$row["total_likes"].
+                    .$row["tid"]. ", '" .$row["tweet_title"]. "','" .str_replace("'", "\'", $row["content"]). "','" . $row["handle"]. "','" .$row["handle"] ."')\">"     // DATA FROM HERE  "','".$row["total_likes"].
                     . $row["tweet_title"] 
                     . "</p>";
                     echo "<script></script>";
@@ -213,9 +275,9 @@
     <p id="tweetID" hidden>tid_here</p>
     <p class="beanzTitle" id="mainBTitle">The Beanz Title will appear here!</p>
     <p class="beanzText" id="mainBText">Please select a Beanz on the left. The Beanz Text will appear here!</p>
-    <button id="likeButton">Like this Beanz</button>
-    <a href="likesList.html">
-      <p id="likeCount">0</p>
+    <button hidden id="likeButton" hidden>Like this Beanz</button>
+    <a id="likesList" href="likesList.php?tweet_id=''">
+      <p hidden id="likeCount">0</p>
     </a>
   </div>
 
@@ -223,11 +285,11 @@
   <div id="userInfo" class="col">
     <p class="colUser" id="mainUserName">Username Here</p>
     <p class="colHandle" id="mainUserHandle">Handle Here</p>
-    <button id="viewProfErr">View User Profile</button>
+    <button id="viewProfErr" hidden>View User Profile</button>
     <p id="errorMsg" class="errorMessage"><?php echo "".$viewProfErr."" ?></p>
-    <button id="ViewFollowButton">View Follows</button>
+    <button id="ViewFollowButton" hidden>View Follows</button>
     <p id="viewFollowsErr" class="errorMessage"><?php echo "".$viewFollowsErr."" ?></p>
-    <button id="FollowButton">Follow this User</button>
+    <button id="FollowButton" hidden>Follow this User</button>
     <p id="followErr" class="errorMessage"><?php echo "".$followErr."" ?></p>
   </div>
 
@@ -237,8 +299,19 @@
 
 <script>
     function display_tweet(tweet_id, tweet_title, content, handle, username) {
+        clearErrors();
+        console.log(content);
+
+        // Remove disabled attributes from buttons now that we have a real tweet selected.
+        document.getElementById('likeButton').hidden = false;
+        document.getElementById('viewProfErr').hidden = false;
+        document.getElementById('ViewFollowButton').hidden = false;
+        document.getElementById('FollowButton').hidden = false;
+        document.getElementById('likeCount').hidden = false;
+
         document.getElementById('tweetID').innerHTML = tweet_id;
         var tid = $("#tweetID").html();
+        document.getElementById('likesList').href = "likesList.php?tweet_id="+tid+"&title="+tweet_title;
         // $("#mainBTitle").load("get_tweet.php", {
         //     tweet_id: tid,
         //     column: "tweet_title"
@@ -253,7 +326,6 @@
 
         document.getElementById('mainUserName').innerHTML = handle;
         document.getElementById('mainUserHandle').innerHTML = username;
-
 
         // $("#likeCount").load("get_tweet.php", {
         //     tweet_id: tid,
