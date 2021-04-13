@@ -1,0 +1,42 @@
+CREATE TABLE users (
+handle		VARCHAR(20)	NOT NULL UNIQUE,
+username	VARCHAR(20)	NOT NULL,
+password	VARCHAR(255) NOT NULL,
+bio		TEXT(140)	DEFAULT 'This user has not set up a bio.',
+PRIMARY KEY (handle)
+);
+
+CREATE TABLE tweets (
+tid		INT	NOT NULL AUTO_INCREMENT,
+handle		VARCHAR(20)	NOT NULL,
+tweet_title	TEXT(50)	NOT NULL,
+content		TEXT(140)	NOT NULL,
+date_posted	DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+total_likes	INT	NOT NULL DEFAULT 0,
+PRIMARY KEY (tid, handle),
+FOREIGN KEY (handle) REFERENCES users(handle)
+);
+
+CREATE TABLE LIKES_A (
+tid		INT	NOT NULL,
+handle	VARCHAR(20)	NOT NULL,
+PRIMARY KEY (tid, handle),
+FOREIGN KEY (tid) REFERENCES tweets(tid),
+FOREIGN KEY (handle) REFERENCES users(handle)
+);
+
+CREATE TABLE POST_A (
+tid		INT	NOT NULL,
+handle	VARCHAR(20)	NOT NULL,
+PRIMARY KEY (tid, handle),
+FOREIGN KEY (tid) REFERENCES tweets(tid),
+FOREIGN KEY (handle) REFERENCES users(handle)
+);
+
+CREATE TABLE follow (
+follower_handle		VARCHAR(20)	NOT NULL,
+following_handle	VARCHAR(20)	NOT NULL,
+PRIMARY KEY (follower_handle, following_handle),
+FOREIGN KEY (follower_handle) REFERENCES users(handle),
+FOREIGN KEY (following_handle) REFERENCES users(handle)
+);
