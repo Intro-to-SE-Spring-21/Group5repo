@@ -20,8 +20,18 @@ Framework: WAMP
 A Twitter-esque website that is created for our valued customer.
 ```
 
+## Live Website Link
+http://3.238.186.185/Group5repo/website/home.php
 
-# Setup and Installation Instructions
+DO NOT do the following:
+* Use a real password
+* Send anything inappropriate
+* Send foreign characters
+* Use apostrophes in the Beanz Title
+  
+The above will either cause errors (such as not displaying the beanz) or will simply break our rules of conduct.  
+
+## Setup and Installation Instructions
 
 
 First run `git clone https://github.com/Intro-to-SE-Spring-21/Group5repo.git`
