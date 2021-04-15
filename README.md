@@ -28,6 +28,7 @@ DO NOT do the following:
 * Send anything inappropriate
 * Send foreign characters
 * Use apostrophes in the Beanz Title
+* Use Enter in any text fields
   
 The above will either cause errors (such as not displaying the beanz) or will simply break our rules of conduct.  
 
